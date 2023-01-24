@@ -13,10 +13,128 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Menu Screen'),
-      ),
-      body: Text('Hello'),
-    );
+        appBar: AppBar(
+          iconTheme: const IconThemeData(
+            color: Colors.black,
+          ),
+          backgroundColor: Colors.white,
+        ),
+        body: Column(
+          children: [
+            SizedBox(
+              height: 30,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Container(
+                width: double.infinity,
+                height: 100,
+                child: Card(
+                  color: Colors.grey.shade300,
+                  elevation: 10,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              'Mansi Shah',
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey.shade500),
+                            ),
+                            Text(
+                              'mansishah26032gmail.com',
+                              style: TextStyle(
+                                  fontSize: 17, color: Colors.grey.shade500),
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  'View Activity',
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      color: Colors.grey.shade500),
+                                ),
+                                Icon(size: 10, Icons.arrow_forward_ios),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 35,
+                              backgroundColor: Colors.grey.shade500,
+                              child: Icon(size: 50, Icons.person),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: ListTile(
+                leading: Icon(Icons.history),
+                title: Text('Your Order History'),
+                trailing: Icon(Icons.arrow_forward_ios),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: ListTile(
+                leading: Icon(Icons.history),
+                title: Text('Wallet'),
+                trailing: Icon(Icons.arrow_forward_ios),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: ListTile(
+                leading: Icon(Icons.assignment_late_outlined),
+                title: Text('About'),
+                trailing: Icon(Icons.arrow_forward_ios),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: ListTile(
+                leading: Icon(Icons.contact_support_outlined),
+                title: Text('Support'),
+                trailing: Icon(Icons.arrow_forward_ios),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: ListTile(
+                leading: Icon(Icons.contact_support_outlined),
+                title: Text('Help'),
+                trailing: Icon(Icons.arrow_forward_ios),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: ListTile(
+                leading: Icon(Icons.power_settings_new_outlined),
+                title: Text('Logout'),
+                trailing: Icon(Icons.arrow_forward_ios),
+              ),
+            ),
+          ],
+        ));
   }
 }

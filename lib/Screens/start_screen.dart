@@ -38,7 +38,7 @@ class StartScreen extends StatelessWidget {
                   child: Container(
                     width: double.infinity,
                     child: Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
+                      padding: const EdgeInsets.only(bottom: 20),
                       child: TextButton(
                           style: TextButton.styleFrom(
                               backgroundColor: Colors.yellow),
