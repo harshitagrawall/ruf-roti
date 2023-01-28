@@ -21,7 +21,7 @@ class _MenuState extends State<Menu> {
         ),
         body: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -83,10 +83,10 @@ class _MenuState extends State<Menu> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            Padding(
+            const Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ListTile(
                 leading: Icon(Icons.history),
@@ -94,7 +94,7 @@ class _MenuState extends State<Menu> {
                 trailing: Icon(Icons.arrow_forward_ios),
               ),
             ),
-            Padding(
+            const Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ListTile(
                 leading: Icon(Icons.history),
@@ -102,7 +102,7 @@ class _MenuState extends State<Menu> {
                 trailing: Icon(Icons.arrow_forward_ios),
               ),
             ),
-            Padding(
+            const Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ListTile(
                 leading: Icon(Icons.assignment_late_outlined),
@@ -110,7 +110,7 @@ class _MenuState extends State<Menu> {
                 trailing: Icon(Icons.arrow_forward_ios),
               ),
             ),
-            Padding(
+            const Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ListTile(
                 leading: Icon(Icons.contact_support_outlined),
@@ -118,7 +118,7 @@ class _MenuState extends State<Menu> {
                 trailing: Icon(Icons.arrow_forward_ios),
               ),
             ),
-            Padding(
+            const Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ListTile(
                 leading: Icon(Icons.contact_support_outlined),
@@ -126,7 +126,7 @@ class _MenuState extends State<Menu> {
                 trailing: Icon(Icons.arrow_forward_ios),
               ),
             ),
-            Padding(
+            const Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ListTile(
                 leading: Icon(Icons.power_settings_new_outlined),

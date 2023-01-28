@@ -16,10 +16,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var device_size, height, width;
-  var location = '13485 71 AVE';
+  var location = 'Vijay Nagar, Indore';
   final searchController = TextEditingController();
   double _review = 4.3;
-  String _restro = 'Roti Ka Adda';
+  String _restro = 'Sabji Store';
   String _timing = "30-32 min. | Free deleviery on order above \$15";
 
   @override
@@ -310,7 +310,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     height: width / 39.2,
                                   ),
                                   const Text(
-                                    'Roti ki Rasoi',
+                                    'The Morder Restro',
                                     style: TextStyle(fontSize: 17),
                                   ),
                                   const SizedBox(

@@ -11,6 +11,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final _formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
   final contactController = TextEditingController();
   final passwordController = TextEditingController();
@@ -29,101 +30,132 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const SizedBox(
             height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: TextFormField(
-              controller: nameController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                hintText: "Name",
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: TextFormField(
-              inputFormatters: [
-                FilteringTextInputFormatter.digitsOnly,
-              ],
-              keyboardType: TextInputType.number,
-              controller: contactController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                hintText: "Mobile No:-",
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: TextField(
-              controller: passwordController,
-              obscureText: _passwordVisible,
-              decoration: InputDecoration(
-                  border: const OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  hintText: "Password",
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _passwordVisible = !_passwordVisible;
-                      });
-                    },
-                    child: _passwordVisible
-                        ? (const Icon(
-                            Icons.visibility_off,
-                            color: Colors.grey,
-                          ))
-                        : const Icon(
-                            Icons.visibility,
-                            color: Colors.grey,
-                          ),
-                  )),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              color: Colors.white12,
-              child: TextField(
-                obscureText: _confirmationVisible,
-                controller: cofirmationController,
-                decoration: InputDecoration(
-                    border: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
-                    hintText: "Confirm Password",
-                    suffixIcon: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _confirmationVisible = !_confirmationVisible;
-                        });
+          Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: TextFormField(
+                      controller: nameController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        hintText: "Name",
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'enter the name';
+                        }
+                        return null;
                       },
-                      child: _confirmationVisible
-                          ? (const Icon(
-                              Icons.visibility_off,
-                              color: Colors.grey,
-                            ))
-                          : const Icon(
-                              Icons.visibility,
-                              color: Colors.grey,
-                            ),
-                    )),
-              ),
-            ),
-          ),
-          // const SizedBox(
-          //   height: 130,
-          // ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: TextFormField(
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                      ],
+                      keyboardType: TextInputType.number,
+                      controller: contactController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        hintText: "Mobile No:-",
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'enter mobile No.';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: TextFormField(
+                      controller: passwordController,
+                      obscureText: _passwordVisible,
+                      decoration: InputDecoration(
+                          border: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          hintText: "Password",
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            },
+                            child: _passwordVisible
+                                ? (const Icon(
+                                    Icons.visibility_off,
+                                    color: Colors.grey,
+                                  ))
+                                : const Icon(
+                                    Icons.visibility,
+                                    color: Colors.grey,
+                                  ),
+                          )),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'enter password';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
+                      color: Colors.white12,
+                      child: TextFormField(
+                        obscureText: _confirmationVisible,
+                        controller: cofirmationController,
+                        decoration: InputDecoration(
+                            border: const OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10))),
+                            hintText: "Confirm Password",
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _confirmationVisible = !_confirmationVisible;
+                                });
+                              },
+                              child: _confirmationVisible
+                                  ? (const Icon(
+                                      Icons.visibility_off,
+                                      color: Colors.grey,
+                                    ))
+                                  : const Icon(
+                                      Icons.visibility,
+                                      color: Colors.grey,
+                                    ),
+                            )),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 're-enter password';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              )),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -131,18 +163,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 RoundButton(
                     text: 'Create Account',
                     ontap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => OtpScreen(
-                                  mobController:
-                                      contactController.text.toString())));
+                      if(_formKey.currentState!.validate()){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OtpScreen(
+                                    mobController:
+                                    contactController.text.toString())));
+                      }
                     }),
               ],
             ),
           ),
           const SizedBox(
-            height: 60,
+            height: 50,
           )
         ],
       ),

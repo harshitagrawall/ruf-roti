@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Screens/delivery_status.dart';
 import 'package:wireframe_flaxen/Screens/home_screen.dart';
+import 'package:wireframe_flaxen/Screens/navigation.dart';
 import 'package:wireframe_flaxen/Screens/rotiadda.dart';
 
 class Experience extends StatefulWidget {
@@ -41,10 +42,14 @@ class _ExperienceState extends State<Experience> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children:  [
+            children: [
               InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return Home();
+                    },
+                  ), (route) => false);
                 },
                 child: const Text(
                   '😃 ',
@@ -52,8 +57,12 @@ class _ExperienceState extends State<Experience> {
                 ),
               ),
               InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return Home();
+                    },
+                  ), (route) => false);
                 },
                 child: const Text(
                   '😑 ',
@@ -61,8 +70,12 @@ class _ExperienceState extends State<Experience> {
                 ),
               ),
               InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return Home();
+                    },
+                  ), (route) => false);
                 },
                 child: const Text(
                   '🤩 ',
@@ -70,8 +83,12 @@ class _ExperienceState extends State<Experience> {
                 ),
               ),
               InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return Home();
+                    },
+                  ), (route) => false);
                 },
                 child: const Text(
                   '😥 ',
@@ -79,8 +96,12 @@ class _ExperienceState extends State<Experience> {
                 ),
               ),
               InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return Home();
+                    },
+                  ), (route) => false);
                 },
                 child: const Text(
                   '😡 ',

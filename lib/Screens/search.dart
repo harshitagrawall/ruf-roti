@@ -14,19 +14,19 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search Screen'),
+        title: const Text('Search Screen'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Container(
+              Container(
               width: double.infinity,
               height: 100,
-              child: Card(
+              child: const Card(
                 elevation: 10,
                 child: Center(child: Text('hello world')),
               ),

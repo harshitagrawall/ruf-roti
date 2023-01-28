@@ -14,11 +14,11 @@ class RotiAdda extends StatefulWidget {
 
 class _RotiAddaState extends State<RotiAdda> {
   var device_size, height, width;
-  final _restroName = 'Appetizars';
-  final _dishName = 'Truffle Fries \$11';
+  final _restroName = 'Fruits';
+  final _dishName = 'Carrot Fruit \$11';
   final _dishDetail = 'Truffle,herbs,garana padano,garli aioli';
+  var _counter;
 
-  @override
   @override
   Widget build(BuildContext context) {
     device_size = MediaQuery.of(context).size;
@@ -54,7 +54,7 @@ class _RotiAddaState extends State<RotiAdda> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Roti Ka Adda',
+                        'Sabji Store',
                         style: TextStyle(
                             fontSize: 25, color: Colors.grey.shade400),
                       ),
@@ -103,7 +103,7 @@ class _RotiAddaState extends State<RotiAdda> {
                   GestureDetector(
                       onTap: () {
                         setState(() {
-                          var s = Detail(_dishName, _restroName, _dishDetail);
+                          var s = Detail(_dishName, _restroName, _dishDetail,_counter);
                           restroList.add(s);
                         });
                       },
@@ -151,8 +151,9 @@ class _RotiAddaState extends State<RotiAdda> {
 }
 
 class Detail {
-  var _restroName, _dishName, _dishDetail;
-  Detail(this._dishName, this._restroName, this._dishDetail);
+  var _restroName, _dishName, _dishDetail,_counter;
+
+  Detail(this._dishName, this._restroName, this._dishDetail,this._counter);
 }
 
 var restroList = [];
@@ -217,7 +218,10 @@ Widget myFuction() {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          counter--;
+                          print(counter);
+                        },
                         child: const Icon(
                           Icons.indeterminate_check_box,
                           color: Colors.grey,
@@ -236,7 +240,10 @@ Widget myFuction() {
                         child: Center(child: Text('$counter')),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          counter++;
+                          print(counter);
+                        },
                         child: const Icon(
                           Icons.add_box,
                           size: 25,

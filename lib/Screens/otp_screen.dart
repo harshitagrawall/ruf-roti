@@ -65,10 +65,14 @@ class _OtpScreenState extends State<OtpScreen> {
           ),
           RoundButton(
               text: 'Submit',
+
               ontap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Home()));
-              }),
+                Navigator.pushAndRemoveUntil(context,
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return Home();
+                    },), (route) => false);
+              }
+              ),
         ],
       ),
     );
