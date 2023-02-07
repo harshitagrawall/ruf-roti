@@ -13,9 +13,13 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  bool _passwordVisible = true;
 
   @override
   Widget build(BuildContext context) {
+    var device_size = MediaQuery.of(context).size;
+    var width = device_size.width;
+    var height = device_size.height;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sign In'),
@@ -42,11 +46,26 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             TextFormField(
               controller: passwordController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(5))),
-                hintText: "Password",
-              ),
+              obscureText: _passwordVisible,
+              decoration: InputDecoration(
+                  border: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
+                  hintText: "Password",
+                  suffix: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _passwordVisible = !_passwordVisible;
+                        });
+                      },
+                      child: _passwordVisible
+                          ? const Icon(
+                              Icons.visibility_off,
+                              color: Colors.grey,
+                            )
+                          : const Icon(
+                              Icons.visibility,
+                              color: Colors.grey,
+                            ))),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -59,29 +78,18 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: const Text('Forgot your password')),
               ],
             ),
-            // const SizedBox(
-            //   height: 150,
-            // ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  RoundButton(text: 'Sign In', ontap: () {}),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignUpScreen()));
-                      },
-                      child: const Text("Need An Account? Sign Up")),
-                ],
-              ),
-            ),
-
             const SizedBox(
-              height: 70,
+              height: 100,
             ),
+            RoundButton(text: 'Sign In', ontap: () {}),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignUpScreen()));
+                },
+                child: const Text("Need An Account? Sign Up")),
           ],
         ),
       ),

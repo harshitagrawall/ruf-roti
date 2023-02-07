@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     device_size = MediaQuery.of(context).size;
     height = device_size.height;
     width = device_size.width;
+
 // 14.5 = 27
 // 39.2 = 10
 // 4.9 = 80
@@ -73,13 +74,22 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.blueGrey.shade100,
               height: width / 78.4,
             ),
-            TextFormField(
-              controller: searchController,
-              decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  // icon: Icon(Icons.search),
-                  hintText: 'Search Cuisines, Restauranrs, Stores or Items',
-                  hintStyle: TextStyle(color: Colors.grey)),
+            const SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: TextFormField(
+                controller: searchController,
+                decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.search),
+                    // icon: Icon(Icons.search),
+                    hintText: 'Search Cuisines, Restauranrs, Stores or Items',
+                    hintStyle: TextStyle(color: Colors.grey),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    )),
+              ),
             ),
             SizedBox(
               height: width / 29.9,
@@ -210,7 +220,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: width / 5.2,
                                     child: Card(
                                       elevation: 10,
-                                      color: Colors.grey.shade200,
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                            image: DecorationImage(
+                                          image: AssetImage(
+                                              'images/another roti.jpeg'),
+                                          fit: BoxFit.cover,
+                                        )),
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
@@ -303,7 +320,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: width / 5.2,
                                     child: Card(
                                       elevation: 10,
-                                      color: Colors.grey.shade200,
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                            image: DecorationImage(
+                                          image: AssetImage(
+                                              'images/roti_image.jpeg'),
+                                          fit: BoxFit.cover,
+                                        )),
+                                      ),
                                     ),
                                   ),
                                   SizedBox(

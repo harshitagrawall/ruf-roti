@@ -13,6 +13,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
 
   @override
   Widget build(BuildContext context) {
+    int _groupValue = -1;
     var device_size = MediaQuery.of(context).size;
     var width = device_size.width;
     var height = device_size.height;
@@ -34,43 +35,8 @@ class _PaymentMethodState extends State<PaymentMethod> {
             SizedBox(
               height: width / 7.8,
             ),
-
             Padding(
-              padding: EdgeInsets.only(left: width/9.8,right: width/16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                 Row(
-                   children: [
-                     Container(
-                       height: 50,
-                       width: 50,
-
-                       decoration: const BoxDecoration(
-                         image: DecorationImage(
-                           image: AssetImage('images/gpay.png'),
-                         ),
-                       ),
-                     ),
-                     Padding(
-                       padding: const EdgeInsets.only(left: 30),
-                       child: Text('Google Pay'),
-                     ),
-                   ],
-                 ),
-                  Radio(
-                      value: 1,
-                      groupValue: 1,
-                      onChanged: (val) {
-                        setState(() {
-                          radioButtonValue = 'Google pay';
-                        });
-                      }),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: width/9.8,right: width/16),
+              padding: EdgeInsets.only(left: width / 9.8, right: width / 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -79,7 +45,40 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       Container(
                         height: 50,
                         width: 50,
-
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('images/gpay.png'),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: Text('Google Pay'),
+                      ),
+                    ],
+                  ),
+                  _myRadioButton(
+                    title: 'GooglePay',
+                    value: 0,
+                    onChanged: (newValue) {
+                      setState(() {
+                        _groupValue = newValue;
+                      });
+                    },
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: width / 9.8, right: width / 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        height: 50,
+                        width: 50,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('images/apay.png'),
@@ -104,7 +103,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: width/9.8,right: width/16),
+              padding: EdgeInsets.only(left: width / 9.8, right: width / 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -113,7 +112,6 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       Container(
                         height: 50,
                         width: 50,
-
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('images/visa.png'),
@@ -138,7 +136,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: width/9.8,right: width/16),
+              padding: EdgeInsets.only(left: width / 9.8, right: width / 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -147,7 +145,6 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       Container(
                         height: 50,
                         width: 50,
-
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('images/paypal.jpeg'),
@@ -172,7 +169,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: width/9.8,right: width/16),
+              padding: EdgeInsets.only(left: width / 9.8, right: width / 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -181,7 +178,6 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       Container(
                         height: 50,
                         width: 50,
-
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('images/wallet.png'),
@@ -206,7 +202,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: width/9.8,right: width/16),
+              padding: EdgeInsets.only(left: width / 9.8, right: width / 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -215,7 +211,6 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       Container(
                         height: 50,
                         width: 50,
-
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('images/cash.png'),
@@ -239,31 +234,32 @@ class _PaymentMethodState extends State<PaymentMethod> {
                 ],
               ),
             ),
-
-
-           SizedBox(
-             height: width/6,
-           ),
+            SizedBox(
+              height: width / 6,
+            ),
             Container(
               color: Colors.black,
               height: 1,
               width: width,
             ),
             SizedBox(
-              height: width/13,
+              height: width / 13,
             ),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal:  width / 9.8),
+              padding: EdgeInsets.symmetric(horizontal: width / 9.8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Total \$37.51',style: TextStyle(fontSize: 20,color: Colors.grey.shade400),),
+                  Text(
+                    'Total \$37.51',
+                    style: TextStyle(fontSize: 20, color: Colors.grey.shade400),
+                  ),
                   Icon(Icons.arrow_forward_ios_rounded)
                 ],
               ),
             ),
             SizedBox(
-              height: width/2,
+              height: width / 2,
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
@@ -292,4 +288,15 @@ class _PaymentMethodState extends State<PaymentMethod> {
       ),
     );
   }
+}
+
+Widget _myRadioButton(
+    {required String title, required int value, required var onChanged}) {
+  var _groupValue = 0;
+  return RadioListTile(
+    value: value,
+    groupValue: _groupValue,
+    onChanged: onChanged,
+    title: Text(title),
+  );
 }

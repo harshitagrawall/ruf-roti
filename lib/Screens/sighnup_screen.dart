@@ -11,6 +11,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
   final _formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
   final contactController = TextEditingController();
@@ -21,6 +22,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+   var _device_size = MediaQuery.of(context).size;
+   var height = _device_size.height;
+   var width = _device_size.width;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sign Up'),
@@ -156,29 +160,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ],
               )),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                RoundButton(
-                    text: 'Create Account',
-                    ontap: () {
-                      if(_formKey.currentState!.validate()){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => OtpScreen(
-                                    mobController:
-                                    contactController.text.toString())));
-                      }
-                    }),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 50,
-          )
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.only(bottom: 30),
+        child: RoundButton(
+            text: 'Create Account',
+            ontap: () {
+              print(height);
+              print(width);
+              if (_formKey.currentState!.validate()) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => OtpScreen(
+                            mobController:
+                            contactController.text.toString())));
+              }
+            }),
       ),
     );
   }
