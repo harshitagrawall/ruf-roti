@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:wireframe_flaxen/Screens/address.dart';
 import 'package:wireframe_flaxen/Screens/home_screen.dart';
 import 'package:wireframe_flaxen/Screens/navigation.dart';
 import 'package:wireframe_flaxen/Screens/signin_screen.dart';
@@ -85,7 +86,7 @@ class _OtpScreenState extends State<OtpScreen> {
                           Navigator.pushAndRemoveUntil(context,
                               MaterialPageRoute(
                             builder: (BuildContext context) {
-                              return Home();
+                              return const AddressScreen();
                             },
                           ), (route) => false);
                         }

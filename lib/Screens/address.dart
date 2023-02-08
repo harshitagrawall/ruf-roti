@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wireframe_flaxen/Screens/navigation.dart';
 
 class AddressScreen extends StatefulWidget {
   const AddressScreen({Key? key}) : super(key: key);
@@ -46,7 +47,9 @@ class _AddressScreenState extends State<AddressScreen> {
             child: Text('Nearby addresses',style: TextStyle(fontSize: 18),),
           ),
           GestureDetector(
-            onTap: (){},
+            onTap: (){
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> Home()), (route) => false);
+            },
             child: const ListTile(
               leading: Icon(Icons.near_me),
               title: Text('Use Current Location'),

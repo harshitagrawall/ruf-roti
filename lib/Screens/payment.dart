@@ -57,15 +57,14 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       ),
                     ],
                   ),
-                  _myRadioButton(
-                    title: 'GooglePay',
-                    value: 0,
-                    onChanged: (newValue) {
-                      setState(() {
-                        _groupValue = newValue;
-                      });
-                    },
-                  )
+                  Radio(
+                      value: 1,
+                      groupValue: 1,
+                      onChanged: (val) {
+                        setState(() {
+                          radioButtonValue = 'Google Pay';
+                        });
+                      }),
                 ],
               ),
             ),
@@ -240,7 +239,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
             Container(
               color: Colors.black,
               height: 1,
-              width: width,
+              width: double.infinity,
             ),
             SizedBox(
               height: width / 13,
@@ -293,10 +292,12 @@ class _PaymentMethodState extends State<PaymentMethod> {
 Widget _myRadioButton(
     {required String title, required int value, required var onChanged}) {
   var _groupValue = 0;
-  return RadioListTile(
-    value: value,
-    groupValue: _groupValue,
-    onChanged: onChanged,
-    title: Text(title),
+  return Expanded(
+    child: RadioListTile(
+      value: value,
+      groupValue: _groupValue,
+      onChanged: onChanged,
+      title: Text(title),
+    ),
   );
 }
