@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:wireframe_flaxen/Screens/about.dart';
 import 'package:wireframe_flaxen/Screens/help.dart';
+import 'package:wireframe_flaxen/Screens/profile.dart';
 import 'package:wireframe_flaxen/Screens/wallet.dart';
 
 class Menu extends StatefulWidget {
@@ -35,53 +36,58 @@ class _MenuState extends State<Menu> {
                 child: Card(
                   color: Colors.grey.shade300,
                   elevation: 10,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              'Mansi Shah',
-                              style: TextStyle(
-                                  fontSize: 20, color: Colors.grey.shade500),
-                            ),
-                            Text(
-                              'mansishah26032gmail.com',
-                              style: TextStyle(
-                                  fontSize: 17, color: Colors.grey.shade500),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  'View Activity',
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      color: Colors.grey.shade500),
-                                ),
-                                Icon(size: 10, Icons.arrow_forward_ios),
-                              ],
-                            ),
-                          ],
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileScreen() ));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                'Mansi Shah',
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.grey.shade500),
+                              ),
+                              Text(
+                                'mansishah26032gmail.com',
+                                style: TextStyle(
+                                    fontSize: 17, color: Colors.grey.shade500),
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'View Activity',
+                                    style: TextStyle(
+                                        fontSize: 10,
+                                        color: Colors.grey.shade500),
+                                  ),
+                                  const Icon(size: 10, Icons.arrow_forward_ios),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CircleAvatar(
-                              radius: 35,
-                              backgroundColor: Colors.grey.shade500,
-                              child: Icon(size: 50, Icons.person),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CircleAvatar(
+                                radius: 35,
+                                backgroundColor: Colors.grey.shade500,
+                                child: const Icon(size: 50, Icons.person),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -90,7 +96,7 @@ class _MenuState extends State<Menu> {
               height: 40,
             ),
             const Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding:  EdgeInsets.symmetric(horizontal: 30),
               child: ListTile(
                 leading: Icon(Icons.history),
                 title: Text('Your Order History'),
@@ -126,7 +132,7 @@ class _MenuState extends State<Menu> {
               ),
             ),
             const Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding:  EdgeInsets.symmetric(horizontal: 30),
               child: ListTile(
                 leading: Icon(Icons.contact_support_outlined),
                 title: Text('Support'),
@@ -148,7 +154,7 @@ class _MenuState extends State<Menu> {
               ),
             ),
             const Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding:  EdgeInsets.symmetric(horizontal: 30),
               child: ListTile(
                 leading: Icon(Icons.power_settings_new_outlined),
                 title: Text('Logout'),
