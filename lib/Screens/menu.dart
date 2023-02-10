@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:wireframe_flaxen/Screens/about.dart';
 import 'package:wireframe_flaxen/Screens/help.dart';
+import 'package:wireframe_flaxen/Screens/order_history.dart';
 import 'package:wireframe_flaxen/Screens/profile.dart';
 import 'package:wireframe_flaxen/Screens/wallet.dart';
 
@@ -95,12 +94,18 @@ class _MenuState extends State<Menu> {
             const SizedBox(
               height: 40,
             ),
-            const Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 30),
-              child: ListTile(
-                leading: Icon(Icons.history),
-                title: Text('Your Order History'),
-                trailing: Icon(Icons.arrow_forward_ios),
+             Padding(
+              padding:  const EdgeInsets.symmetric(horizontal: 30),
+              child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const OrderHistory()));
+                  },
+                child: const ListTile(
+                  leading: Icon(Icons.history),
+                  title: Text('Your Order History'),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                ),
               ),
             ),
             Padding(
