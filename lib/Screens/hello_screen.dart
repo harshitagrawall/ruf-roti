@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Screens/sighnup_screen.dart';
 import 'package:wireframe_flaxen/Screens/signin_screen.dart';
-import 'package:wireframe_flaxen/Utils/round_button.dart';
+import 'package:wireframe_flaxen/resources/round_button.dart';
 
 class HelloScreen extends StatefulWidget {
   const HelloScreen({Key? key}) : super(key: key);

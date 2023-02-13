@@ -30,16 +30,16 @@ class _MenuState extends State<Menu> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Container(
-                width: double.infinity,
-                height: 100,
-                child: Card(
-                  color: Colors.grey.shade300,
-                  elevation: 10,
-                  child: GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileScreen() ));
-                    },
+              child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileScreen() ));
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 100,
+                  child: Card(
+                    color: Colors.grey.shade300,
+                    elevation: 10,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

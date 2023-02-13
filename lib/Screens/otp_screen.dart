@@ -7,7 +7,7 @@ import 'package:wireframe_flaxen/Screens/signin_screen.dart';
 
 // import 'package:flutter/src/widgets/container.dart';
 // import 'package:flutter/src/widgets/framework.dart';
-import 'package:wireframe_flaxen/Utils/round_button.dart';
+import 'package:wireframe_flaxen/resources/round_button.dart';
 
 class OtpScreen extends StatefulWidget {
   var mobController;

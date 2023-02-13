@@ -51,7 +51,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                           ),
                         ),
                       ),
-                      Padding(
+                     const Padding(
                         padding: const EdgeInsets.only(left: 30),
                         child: Text('Google Pay'),
                       ),
@@ -84,7 +84,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                           ),
                         ),
                       ),
-                      Padding(
+                      const  Padding(
                         padding: const EdgeInsets.only(left: 30),
                         child: Text('Apple Pay'),
                       ),
@@ -117,7 +117,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                           ),
                         ),
                       ),
-                      Padding(
+                      const  Padding(
                         padding: const EdgeInsets.only(left: 30),
                         child: Text('Credit Card'),
                       ),
@@ -150,7 +150,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                           ),
                         ),
                       ),
-                      Padding(
+                      const  Padding(
                         padding: const EdgeInsets.only(left: 30),
                         child: Text('Paypal'),
                       ),
@@ -183,7 +183,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                           ),
                         ),
                       ),
-                      Padding(
+                      const   Padding(
                         padding: const EdgeInsets.only(left: 30),
                         child: Text('Wallet Balance'),
                       ),
@@ -216,7 +216,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                           ),
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: const EdgeInsets.only(left: 30),
                         child: Text('Cash'),
                       ),

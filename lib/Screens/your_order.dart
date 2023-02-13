@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Screens/checkout.dart';
-import 'package:wireframe_flaxen/Utils/round_button.dart';
+import 'package:wireframe_flaxen/resources/round_button.dart';
 
 class YourOrder extends StatefulWidget {
   const YourOrder({super.key});

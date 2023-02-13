@@ -14,6 +14,8 @@ class _RatingsBarState extends State<RatingsBar> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
+
+
             iconTheme: const IconThemeData(
               color: Colors.black,
             ),
