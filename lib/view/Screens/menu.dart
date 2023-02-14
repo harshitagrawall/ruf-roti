@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:wireframe_flaxen/Screens/about.dart';
-import 'package:wireframe_flaxen/Screens/help.dart';
-import 'package:wireframe_flaxen/Screens/profile.dart';
-import 'package:wireframe_flaxen/Screens/wallet.dart';
+
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -23,148 +21,152 @@ class _MenuState extends State<Menu> {
           ),
           backgroundColor: Colors.white,
         ),
-        body: Column(
-          children: [
-            const SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: GestureDetector(
-                onTap: (){
-                  Navigator.pushNamed(context, RoutesName.profile);
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 100,
-                  child: Card(
-                    color: Colors.grey.shade300,
-                    elevation: 10,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                'Mansi Shah',
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.grey.shade500),
-                              ),
-                              Text(
-                                'mansishah26032gmail.com',
-                                style: TextStyle(
-                                    fontSize: 17, color: Colors.grey.shade500),
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    'View Activity',
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        color: Colors.grey.shade500),
-                                  ),
-                                  const Icon(size: 10, Icons.arrow_forward_ios),
-                                ],
-                              ),
-                            ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, RoutesName.profile);
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 100,
+                    child: Card(
+                      color: Colors.grey.shade300,
+                      elevation: 10,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  'Mansi Shah',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.grey.shade500),
+                                ),
+                                Text(
+                                  'mansishah26032gmail.com',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      color: Colors.grey.shade500),
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'View Activity',
+                                      style: TextStyle(
+                                          fontSize: 10,
+                                          color: Colors.grey.shade500),
+                                    ),
+                                    const Icon(
+                                        size: 10, Icons.arrow_forward_ios),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              CircleAvatar(
-                                radius: 35,
-                                backgroundColor: Colors.grey.shade500,
-                                child: const Icon(size: 50, Icons.person),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CircleAvatar(
+                                  radius: 35,
+                                  backgroundColor: Colors.grey.shade500,
+                                  child: const Icon(size: 50, Icons.person),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-             Padding(
-              padding:  const EdgeInsets.symmetric(horizontal: 30),
-              child: GestureDetector(
+              const SizedBox(
+                height: 40,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const OrderHistory()));
+                    Navigator.pushNamed(context, RoutesName.orderHistory);
                   },
-                child: const ListTile(
-                  leading: Icon(Icons.history),
-                  title: Text('Your Order History'),
-                  trailing: Icon(Icons.arrow_forward_ios),
+                  child: const ListTile(
+                    leading: Icon(Icons.history),
+                    title: Text('Your Order History'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, RoutesName.wallet);
-                },
-                child: const ListTile(
-                  leading: Icon(Icons.history),
-                  title: Text('Wallet'),
-                  trailing: Icon(Icons.arrow_forward_ios),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, RoutesName.wallet);
+                  },
+                  child: const ListTile(
+                    leading: Icon(Icons.history),
+                    title: Text('Wallet'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, RoutesName.about);
-                },
-                child: const ListTile(
-                  leading: Icon(Icons.assignment_late_outlined),
-                  title: Text('About'),
-                  trailing: Icon(Icons.arrow_forward_ios),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, RoutesName.about);
+                  },
+                  child: const ListTile(
+                    leading: Icon(Icons.assignment_late_outlined),
+                    title: Text('About'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                  ),
                 ),
               ),
-            ),
-            const Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 30),
-              child: ListTile(
-                leading: Icon(Icons.contact_support_outlined),
-                title: Text('Support'),
-                trailing: Icon(Icons.arrow_forward_ios),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, RoutesName.help);
-                },
-                child: const ListTile(
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: ListTile(
                   leading: Icon(Icons.contact_support_outlined),
-                  title: Text('Help'),
+                  title: Text('Support'),
                   trailing: Icon(Icons.arrow_forward_ios),
                 ),
               ),
-            ),
-            const Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 30),
-              child: ListTile(
-                leading: Icon(Icons.power_settings_new_outlined),
-                title: Text('Logout'),
-                trailing: Icon(Icons.arrow_forward_ios),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, RoutesName.help);
+                  },
+                  child: const ListTile(
+                    leading: Icon(Icons.contact_support_outlined),
+                    title: Text('Help'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                  ),
+                ),
               ),
-            ),
-          ],
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: ListTile(
+                  leading: Icon(Icons.power_settings_new_outlined),
+                  title: Text('Logout'),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                ),
+              ),
+            ],
+          ),
         ));
   }
 }
