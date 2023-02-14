@@ -84,13 +84,23 @@ class _WalletScreenState extends State<WalletScreen> {
                         children: [
                           TextButton(
                               onPressed: () {
-
+                                setState(() {
+                                  amountController.value =  TextEditingValue(text: amountController.text == '' ? '1000' :(int.parse(amountController.text) + 1000).toString());
+                                });
                               },
                               child: const Text('+1000')),
                           TextButton(
-                              onPressed: () {}, child: const Text('+2000')),
+                              onPressed: () {
+                                setState(() {
+                                  amountController.value =  TextEditingValue(text: amountController.text == '' ? '2000' :(int.parse(amountController.text) + 2000).toString());
+                                });
+                              }, child: const Text('+2000')),
                           TextButton(
-                              onPressed: () {}, child: const Text('+5000'))
+                              onPressed: () {
+                                setState(() {
+                                  amountController.value =  TextEditingValue(text: amountController.text == '' ? '5000' :(int.parse(amountController.text) + 5000).toString());
+                                });
+                              }, child: const Text('+5000'))
                         ],
                       ),
                       InkWell(
