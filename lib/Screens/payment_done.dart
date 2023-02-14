@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Screens/delivery_status.dart';
 
-class Confrimation extends StatefulWidget {
-  const Confrimation({Key? key}) : super(key: key);
+class PaymentDone extends StatefulWidget {
+  const PaymentDone({Key? key}) : super(key: key);
 
   @override
-  State<Confrimation> createState() => _ConfrimationState();
+  State<PaymentDone> createState() => _PaymentDoneState();
 }
 
-class _ConfrimationState extends State<Confrimation> {
+class _PaymentDoneState extends State<PaymentDone> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Screens/hello_screen.dart';
+import 'package:wireframe_flaxen/Screens/signin_screen.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({Key? key}) : super(key: key);
@@ -43,10 +44,8 @@ class StartScreen extends StatelessWidget {
                           style: TextButton.styleFrom(
                               backgroundColor: Colors.yellow),
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HelloScreen()));
+                            // Navigator.push(context, MaterialPageRoute(builder: (context)=> SignInScreen()));
+                            Navigator.pushNamed(context, RoutesName.hello);
                           },
                           child: const Text(
                             'Continue ' + '→',

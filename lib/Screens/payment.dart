@@ -273,7 +273,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Confrimation()));
+                                builder: (context) => const PaymentDone()));
                       },
                       child: const Text(
                         'Confirm And Pay',

@@ -14,7 +14,7 @@ class HomeState extends State<Home> {
   var screens = [
     HomeScreen(),
     SearchScreen(),
-    Orders(),
+    RecentOrders(),
     Menu(),
   ];
 

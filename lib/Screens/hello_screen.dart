@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Screens/sighnup_screen.dart';
 import 'package:wireframe_flaxen/Screens/signin_screen.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
 
 class HelloScreen extends StatefulWidget {
@@ -42,10 +43,11 @@ class _HelloScreenState extends State<HelloScreen> {
           RoundButton(
               text: 'Sign In',
               ontap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SignInScreen()));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => const SignInScreen()));
+                Navigator.pushNamed(context, RoutesName.signIn);
               }),
           const SizedBox(
             height: 15,
@@ -60,10 +62,11 @@ class _HelloScreenState extends State<HelloScreen> {
           RoundButton(
               text: 'Sign Up',
               ontap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SignUpScreen()));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => const SignUpScreen()));
+                Navigator.pushNamed(context, RoutesName.signup);
               }),
           const SizedBox(
             height: 30,
