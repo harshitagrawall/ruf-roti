@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Screens/signin_screen.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 
 class StartScreen extends StatelessWidget {

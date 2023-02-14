@@ -3,7 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:wireframe_flaxen/Screens/your_order.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
+
 
 class RotiAdda extends StatefulWidget {
   const RotiAdda({super.key});
@@ -136,8 +137,8 @@ class _RotiAddaState extends State<RotiAdda> {
                 style:
                     TextButton.styleFrom(backgroundColor: Colors.grey.shade400),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => YourOrder()));
+                  Navigator.pushNamed(context, RoutesName.orders);
+
                 },
                 child: const Text(
                   'total amount 26.65\$',

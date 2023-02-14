@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Screens/start_screen.dart';
 import 'package:wireframe_flaxen/Utils/routes.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 

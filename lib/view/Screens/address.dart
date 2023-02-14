@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Screens/navigation.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
+
 
 class AddressScreen extends StatefulWidget {
   const AddressScreen({Key? key}) : super(key: key);
@@ -48,7 +49,8 @@ class _AddressScreenState extends State<AddressScreen> {
           ),
           GestureDetector(
             onTap: (){
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> Home()), (route) => false);
+              // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> Home()), (route) => false);\
+              Navigator.pushNamedAndRemoveUntil(context, RoutesName.navigationBar, (route) => false);
             },
             child: const ListTile(
               leading: Icon(Icons.near_me),

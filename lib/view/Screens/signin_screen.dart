@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:wireframe_flaxen/Screens/sighnup_screen.dart';
+import 'package:wireframe_flaxen/Utils/routes.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -84,10 +85,11 @@ class _SignInScreenState extends State<SignInScreen> {
             RoundButton(text: 'Sign In', ontap: () {}),
             TextButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignUpScreen()));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => const SignUpScreen()));
+                  Navigator.pushNamed(context, RoutesName.signup);
                 },
                 child: const Text("Need An Account? Sign Up")),
           ],

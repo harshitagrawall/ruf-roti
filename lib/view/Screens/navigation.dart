@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Screens/home_screen.dart';
-import 'package:wireframe_flaxen/Screens/menu.dart';
-import 'package:wireframe_flaxen/Screens/orders.dart';
-import 'package:wireframe_flaxen/Screens/search.dart';
+import 'package:wireframe_flaxen/view/Screens/home_screen.dart';
+import 'package:wireframe_flaxen/view/Screens/menu.dart';
+import 'package:wireframe_flaxen/view/Screens/orders.dart';
+import 'package:wireframe_flaxen/view/Screens/search.dart';
 
 class Home extends StatefulWidget {
   @override

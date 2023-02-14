@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Screens/checkout.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
+
 import 'package:wireframe_flaxen/resources/round_button.dart';
 
 class YourOrder extends StatefulWidget {
@@ -12,6 +13,7 @@ class YourOrder extends StatefulWidget {
 class _YourOrderState extends State<YourOrder> {
   var device_size, height, width;
   var _dishName = 'Crispy Yam Fries', counter = 0, _price = '\$9.35';
+
   @override
   Widget build(BuildContext context) {
     device_size = MediaQuery.of(context).size;
@@ -78,8 +80,7 @@ class _YourOrderState extends State<YourOrder> {
                 style:
                     TextButton.styleFrom(backgroundColor: Colors.grey.shade400),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Checkout()));
+                  Navigator.pushNamed(context, RoutesName.checkout);
                 },
                 child: const Text(
                   'total amount 26.65\$',
@@ -96,6 +97,7 @@ var priceList = [];
 
 class Price {
   var _dishName, _price, counter;
+
   Price(this._dishName, this._price, this.counter);
 }
 

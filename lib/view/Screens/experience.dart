@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Screens/delivery_status.dart';
-import 'package:wireframe_flaxen/Screens/home_screen.dart';
-import 'package:wireframe_flaxen/Screens/navigation.dart';
-import 'package:wireframe_flaxen/Screens/rotiadda.dart';
+import 'package:wireframe_flaxen/view/Screens/navigation.dart';
+
 
 class Experience extends StatefulWidget {
   const Experience({Key? key}) : super(key: key);

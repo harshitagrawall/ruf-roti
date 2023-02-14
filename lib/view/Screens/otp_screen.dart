@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:wireframe_flaxen/Screens/address.dart';
-import 'package:wireframe_flaxen/Screens/home_screen.dart';
-import 'package:wireframe_flaxen/Screens/navigation.dart';
-import 'package:wireframe_flaxen/Screens/signin_screen.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
 
 // import 'package:flutter/src/widgets/container.dart';
 // import 'package:flutter/src/widgets/framework.dart';
@@ -34,7 +31,7 @@ class _OtpScreenState extends State<OtpScreen> {
         body: Column(
           children: [
             Form(
-              key:  _formKey,
+              key: _formKey,
               child: Column(
                 children: [
                   Padding(
@@ -83,12 +80,14 @@ class _OtpScreenState extends State<OtpScreen> {
                       text: 'Submit',
                       ontap: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.pushAndRemoveUntil(context,
-                              MaterialPageRoute(
-                            builder: (BuildContext context) {
-                              return const AddressScreen();
-                            },
-                          ), (route) => false);
+                          // Navigator.pushnaAndRemoveUntil(context,
+                          //     MaterialPageRoute(
+                          //   builder: (BuildContext context) {
+                          //     return const AddressScreen();
+                          //   },
+                          // ), (route) => false);
+                          Navigator.pushNamedAndRemoveUntil(
+                              context, RoutesName.address, (route) => false);
                         }
                       }),
                 ],

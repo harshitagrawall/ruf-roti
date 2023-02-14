@@ -5,7 +5,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Screens/rotiadda.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -155,8 +156,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => RotiAdda()));
+                      // Navigator.push(context,
+                      //     MaterialPageRoute(builder: (context) => RotiAdda()));
+                      Navigator.pushNamed(context, RoutesName.afterhome);
                     },
                     child: Card(
                       elevation: 10,
@@ -255,8 +257,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => RotiAdda()));
+                      // Navigator.push(context,
+                      //     MaterialPageRoute(builder: (context) => RotiAdda()));
+                      Navigator.pushNamed(context, RoutesName.afterhome);
                     },
                     child: Card(
                       elevation: 10,

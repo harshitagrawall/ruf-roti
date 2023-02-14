@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Screens/delivery_status.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
+
 
 class PaymentDone extends StatefulWidget {
   const PaymentDone({Key? key}) : super(key: key);
@@ -57,10 +58,7 @@ class _PaymentDoneState extends State<PaymentDone> {
                 style: TextButton.styleFrom(
                     backgroundColor: Colors.grey.shade400),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const DeliveryStatus()));
+                  Navigator.pushNamed(context, RoutesName.deliverystatus);
                 },
                 child: const Text(
                   'Track Order',

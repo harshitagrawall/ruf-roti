@@ -3,7 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:wireframe_flaxen/Screens/payment.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
+
 
 class Checkout extends StatefulWidget {
   const Checkout({super.key});
@@ -240,10 +241,11 @@ class _CheckoutState extends State<Checkout> {
                     style: TextButton.styleFrom(
                         backgroundColor: Colors.grey.shade400),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PaymentMethod()));
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => PaymentMethod()));
+                      Navigator.pushNamed(context, RoutesName.payment);
                     },
                     child: const Text(
                       'Proceed To Pay',

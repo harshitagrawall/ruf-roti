@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:wireframe_flaxen/Screens/otp_screen.dart';
+import 'package:wireframe_flaxen/view/Screens/otp_screen.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
 
 class SignUpScreen extends StatefulWidget {

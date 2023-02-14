@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:wireframe_flaxen/Screens/about.dart';
-import 'package:wireframe_flaxen/Screens/help.dart';
-import 'package:wireframe_flaxen/Screens/profile.dart';
-import 'package:wireframe_flaxen/Screens/wallet.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -32,7 +29,7 @@ class _MenuState extends State<Menu> {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileScreen() ));
+                  Navigator.pushNamed(context, RoutesName.profile);
                 },
                 child: Container(
                   width: double.infinity,
@@ -107,8 +104,7 @@ class _MenuState extends State<Menu> {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const WalletScreen()));
+                  Navigator.pushNamed(context, RoutesName.wallet);
                 },
                 child: const ListTile(
                   leading: Icon(Icons.history),
@@ -121,8 +117,7 @@ class _MenuState extends State<Menu> {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const About()));
+                  Navigator.pushNamed(context, RoutesName.about);
                 },
                 child: const ListTile(
                   leading: Icon(Icons.assignment_late_outlined),
@@ -143,8 +138,7 @@ class _MenuState extends State<Menu> {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Help()));
+                  Navigator.pushNamed(context, RoutesName.help);
                 },
                 child: const ListTile(
                   leading: Icon(Icons.contact_support_outlined),

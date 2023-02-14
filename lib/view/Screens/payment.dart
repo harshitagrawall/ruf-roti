@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Screens/payment_done.dart';
+import 'package:wireframe_flaxen/Utils/routes_name.dart';
+
 
 class PaymentMethod extends StatefulWidget {
   const PaymentMethod({super.key});
@@ -270,10 +271,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.grey.shade400),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const PaymentDone()));
+                        Navigator.pushNamed(context, RoutesName.paymentdone);
                       },
                       child: const Text(
                         'Confirm And Pay',
