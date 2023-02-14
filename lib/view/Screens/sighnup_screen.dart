@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
 import 'package:wireframe_flaxen/view/Screens/otp_screen.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
 
@@ -17,6 +18,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final contactController = TextEditingController();
   final passwordController = TextEditingController();
   final cofirmationController = TextEditingController();
+  FocusNode _nameFocusNode = FocusNode();
+  FocusNode _passwordFocusNode = FocusNode();
+  FocusNode _mobileFocusNode = FocusNode();
+  FocusNode _confirmationFocusNode = FocusNode();
+
   late bool _passwordVisible = true;
   late bool _confirmationVisible = true;
 
@@ -42,6 +48,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
                       controller: nameController,
+                      focusNode: _nameFocusNode,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius:
@@ -53,6 +60,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           return 'enter the name';
                         }
                         return null;
+                      },
+                      onFieldSubmitted: (val){
+                        Utils.fieldFocusChange(_nameFocusNode, _mobileFocusNode, context);
                       },
                     ),
                   ),
@@ -66,6 +76,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         FilteringTextInputFormatter.digitsOnly,
                       ],
                       keyboardType: TextInputType.number,
+                      focusNode: _mobileFocusNode,
                       controller: contactController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(
@@ -79,7 +90,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         }
                         return null;
                       },
+                      onFieldSubmitted: (val){
+                        Utils.fieldFocusChange(_mobileFocusNode, _passwordFocusNode, context);
+                      },
                     ),
+
                   ),
                   const SizedBox(
                     height: 10,
@@ -88,6 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
                       controller: passwordController,
+                      focusNode: _passwordFocusNode,
                       obscureText: _passwordVisible,
                       decoration: InputDecoration(
                           border: const OutlineInputBorder(
@@ -116,6 +132,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         }
                         return null;
                       },
+                      onFieldSubmitted: (val){
+                        Utils.fieldFocusChange(_passwordFocusNode, _confirmationFocusNode, context);
+                      },
                     ),
                   ),
                   const SizedBox(
@@ -127,6 +146,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       color: Colors.white12,
                       child: TextFormField(
                         obscureText: _confirmationVisible,
+                        focusNode: _confirmationFocusNode,
                         controller: cofirmationController,
                         decoration: InputDecoration(
                             border: const OutlineInputBorder(

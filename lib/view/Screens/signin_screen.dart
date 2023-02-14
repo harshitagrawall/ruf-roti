@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wireframe_flaxen/Utils/routes.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -15,6 +16,8 @@ class _SignInScreenState extends State<SignInScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   bool _passwordVisible = true;
+  FocusNode _emailFocusNode = FocusNode();
+  FocusNode _passwordFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +38,16 @@ class _SignInScreenState extends State<SignInScreen> {
             TextFormField(
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               keyboardType: TextInputType.number,
+              focusNode: _emailFocusNode,
               controller: emailController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(5))),
                 hintText: "Mobile No:-",
               ),
+              onFieldSubmitted: (val){
+                Utils.fieldFocusChange(_emailFocusNode, _passwordFocusNode, context);
+              },
             ),
             const SizedBox(
               height: 20,
@@ -48,6 +55,7 @@ class _SignInScreenState extends State<SignInScreen> {
             TextFormField(
               controller: passwordController,
               obscureText: _passwordVisible,
+                focusNode: _passwordFocusNode,
               decoration: InputDecoration(
                   border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(5))),
