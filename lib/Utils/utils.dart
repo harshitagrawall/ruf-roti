@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar_route.dart';
 import 'package:flutter/material.dart';
 import 'package:another_flushbar/flushbar.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Utils {
   static void flushBarErrorMessage(String message, BuildContext context) {
@@ -23,6 +24,15 @@ class Utils {
             color: Colors.white,
           ),
         ));
+  }
+
+  static toastMessage(String message){
+    Fluttertoast.showToast(
+      msg: message,
+      backgroundColor: Colors.black,
+      textColor: Colors.white,
+
+    );
   }
 
   static void fieldFocusChange(
