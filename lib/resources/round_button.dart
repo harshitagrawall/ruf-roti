@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 
 class RoundButton extends StatelessWidget {
+
   final String text;
   var ontap;
-  bool isLoading;
-  double  fontSize;
+  final bool loading;
+  double fontSize;
   Color textColor;
   Color backgroundColor;
-   RoundButton({
+
+  RoundButton({
     Key? key,
     required this.text,
     required this.ontap,
-     required this.fontSize,
-     required this.textColor,
-     required this.backgroundColor,
-      this.isLoading = false
+    required this.fontSize,
+    required this.textColor,
+    required this.backgroundColor,
+    this.loading = false,
   }) : super(key: key);
 
   @override
@@ -26,10 +28,14 @@ class RoundButton extends StatelessWidget {
         child: TextButton(
             style: TextButton.styleFrom(backgroundColor: backgroundColor),
             onPressed: ontap,
-            child: Text(
-              text,
-              style:  TextStyle(color: textColor, fontSize: fontSize),
-            )),
+            child: loading
+                ? const CircularProgressIndicator(
+                    color: Colors.white,
+                  )
+                : Text(
+                    text,
+                    style: TextStyle(color: textColor, fontSize: fontSize),
+                  )),
       ),
     );
   }

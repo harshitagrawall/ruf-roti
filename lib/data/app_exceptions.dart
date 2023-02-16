@@ -17,14 +17,12 @@ class FetchDataException extends AppExceptions {
 }
 
 //No Internet Provided
-
 class BadRequestException extends AppExceptions {
   BadRequestException([String? message])
       : super(message, 'No Internet Connection');
 }
 
 // Unauthorized User made request
-
 class UnauthorizedEception extends AppExceptions {
   UnauthorizedEception([String? message])
       : super(message, 'Unauthorized Request');
@@ -33,4 +31,14 @@ class UnauthorizedEception extends AppExceptions {
 // Unauthorized Person
 class InvalidInputException extends AppExceptions {
   InvalidInputException([String? message]) : super(message, 'Invalid Request');
+}
+
+// Internal Server Error
+class InternalServerException extends AppExceptions {
+  InternalServerException([String? message]) : super(message, 'Server Error');
+}
+
+// Client Side Exception
+class ClientSideException extends AppExceptions {
+  ClientSideException([String? message]) : super(message, 'Server Error');
 }

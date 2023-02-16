@@ -4,6 +4,8 @@ import 'package:wireframe_flaxen/Utils/routes.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
+import 'package:provider/provider.dart';
+import 'package:wireframe_flaxen/view_modal/auth_view_modal.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -21,6 +23,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authviewModal = Provider.of<AuthViewModal>(context);
     var device_size = MediaQuery.of(context).size;
     var width = device_size.width;
     var height = device_size.height;
@@ -44,8 +47,8 @@ class _SignInScreenState extends State<SignInScreen> {
               height: 20,
             ),
             TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              keyboardType: TextInputType.number,
+              // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              keyboardType: TextInputType.emailAddress,
               focusNode: _emailFocusNode,
               controller: emailController,
               decoration: const InputDecoration(
@@ -103,17 +106,31 @@ class _SignInScreenState extends State<SignInScreen> {
               height: 100,
             ),
             RoundButton(
+                loading: authviewModal.loading,
                 textColor: Utils.whiteColor,
                 fontSize: 20,
                 backgroundColor: Utils.buttonColorBlue,
                 text: 'Sign In',
-                ontap: () {}),
+                ontap: () {
+                  if (emailController.text.isEmpty) {
+                    Utils.toastMessage('Please Enter Email');
+                  } else if (passwordController.text.isEmpty) {
+                    Utils.toastMessage('Please Enter Password');
+                  } else if (passwordController.text.length < 3) {
+                    Utils.toastMessage('Please Enter 6 digit Password');
+                  } else {
+                    Map data = {
+                      'email': emailController.text.toString(),
+                      // admin@mail.com
+                      'password': passwordController.text.toString(),
+                      // 12345
+                    };
+                    authviewModal.logInApi(data, context);
+                    print('api hit');
+                  }
+                }),
             TextButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const SignUpScreen()));
                   Navigator.pushNamed(context, RoutesName.signup);
                 },
                 child: Text(

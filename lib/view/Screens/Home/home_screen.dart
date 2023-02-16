@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: const [
                   Text(
                     'Delivery ',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style:  TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'Pick-Up',
@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: TextFormField(
                 controller: searchController,
                 decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: Icon(Icons.person),
                     // icon: Icon(Icons.search),
                     hintText: 'Search Cuisines, Restaurants, Stores or Items',
                     hintStyle: TextStyle(color: Colors.grey),

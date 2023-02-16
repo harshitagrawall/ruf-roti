@@ -36,13 +36,27 @@ class NetworkApiResponse extends BaseApiServices {
   dynamic returnResponse(http.Response response) {
     if (response.statusCode >= 200 && response.statusCode < 300) {
       dynamic responseJson = jsonDecode(response.body);
+
       return responseJson;
-    } else if (response.statusCode >= 400 && response.statusCode < 500) {
+    } else if (response.statusCode >= 400 &&
+        response.statusCode < 500 &&
+        response.statusCode != 400 &&
+        response.statusCode != 404) {
+      throw ClientSideException(
+          'Error Occured with Status Code: ${response.statusCode} ');
+    } else if (response.statusCode == 400) {
       throw BadRequestException(
-          'Error Occured with Status Code: ${response.statusCode}');
-    } else if (response.statusCode >= 500 && response.statusCode < 599) {
-      throw BadRequestException(
-          'Error Occured with Status Code: ${response.statusCode}');
+          'Error Occured with Status Code: ${response.statusCode} ');
+    } else if (response.statusCode == 404) {
+      throw UnauthorizedEception(
+          'Error Occured with Status Code: ${response.statusCode} ');
+    } else if (response.statusCode >= 500 && response.statusCode < 599 && response.statusCode != 500) {
+      throw InternalServerException(
+          'Error Occured with Status Code: ${response.statusCode} ');
+    }
+    else if (response.statusCode == 500 ) {
+      throw UnauthorizedEception(
+          'Status Code: ${response.statusCode} ');
     }
   }
 }

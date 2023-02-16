@@ -4,10 +4,10 @@ class AppUrl {
   static var baseUrl = 'https://mysoftwareoffice.com/chalo/';
 
   // Post Api
-  static var  logInEndPoint =  'http://www.flaxeninfosoft.in/flaxen_crm_api/auth/';
+  static var  logInEndPoint =  'http://88.99.248.156/~anand/api/auth/login.php';
 
   // Post Api
-  static var  signUpEndPoint = baseUrl + '';
+  static var  signUpEndPoint = 'http://88.99.248.156/~anand/api/employee/addEmployee.php';
 
   // Post Api
   static var  otpEndPoint = baseUrl + '';

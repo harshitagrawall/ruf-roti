@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_rating_bar: ^4.0.1
   fluttertoast: ^8.0.9
+  provider: ^6.0.5
   http: ^0.13.5
   another_flushbar: ^1.12.29
   timeline_tile: ^2.0.0

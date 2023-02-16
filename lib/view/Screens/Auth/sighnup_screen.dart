@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
 import 'package:wireframe_flaxen/view/Screens/Auth/otp_screen.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
+import 'package:wireframe_flaxen/view_modal/auth_view_modal.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -12,37 +14,50 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
   final _formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
   final contactController = TextEditingController();
   final passwordController = TextEditingController();
-  final cofirmationController = TextEditingController();
-  FocusNode _nameFocusNode = FocusNode();
-  FocusNode _passwordFocusNode = FocusNode();
-  FocusNode _mobileFocusNode = FocusNode();
-  FocusNode _confirmationFocusNode = FocusNode();
+  final confirmationController = TextEditingController();
+  final FocusNode _nameFocusNode = FocusNode();
+  final FocusNode _passwordFocusNode = FocusNode();
+  final FocusNode _mobileFocusNode = FocusNode();
+  final FocusNode _confirmationFocusNode = FocusNode();
 
   late bool _passwordVisible = true;
   late bool _confirmationVisible = true;
-  late bool mismatch = false;
-  late bool _checked = false;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    nameController.dispose();
+    contactController.dispose();
+    passwordController.dispose();
+    confirmationController.dispose();
+
+    _nameFocusNode.dispose();
+    _passwordFocusNode.dispose();
+    _mobileFocusNode.dispose();
+    _confirmationFocusNode.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-   var _device_size = MediaQuery.of(context).size;
-   var height = _device_size.height;
-   var width = _device_size.width;
+    final authviewModal = Provider.of<AuthViewModal>(context);
+    var _device_size = MediaQuery.of(context).size;
+    var height = _device_size.height;
+    var width = _device_size.width;
     return Scaffold(
       appBar: AppBar(
-
-        iconTheme: const IconThemeData(
-          color: Colors.grey
-        ),
+        iconTheme: const IconThemeData(color: Colors.grey),
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text('Sign Up',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300),),
+        title: const Text(
+          'Sign Up',
+          style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w300),
+        ),
       ),
       body: Column(
         children: [
@@ -58,21 +73,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: TextFormField(
                       controller: nameController,
                       focusNode: _nameFocusNode,
-                      decoration:  InputDecoration(
+                      decoration: InputDecoration(
                         fillColor: Colors.grey.shade900,
                         border: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10))),
                         hintText: "Name",
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Enter the name';
-                        }
-                        return null;
-                      },
-                      onFieldSubmitted: (val){
-                        Utils.fieldFocusChange(_nameFocusNode, _mobileFocusNode, context);
+                      onFieldSubmitted: (val) {
+                        Utils.fieldFocusChange(
+                            _nameFocusNode, _mobileFocusNode, context);
                       },
                     ),
                   ),
@@ -94,17 +104,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 BorderRadius.all(Radius.circular(10))),
                         hintText: "Mobile No",
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'enter mobile No.';
-                        }
-                        return null;
-                      },
-                      onFieldSubmitted: (val){
-                        Utils.fieldFocusChange(_mobileFocusNode, _passwordFocusNode, context);
+                      onFieldSubmitted: (val) {
+                        Utils.fieldFocusChange(
+                            _mobileFocusNode, _passwordFocusNode, context);
                       },
                     ),
-
                   ),
                   const SizedBox(
                     height: 10,
@@ -136,14 +140,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     color: Colors.grey,
                                   ),
                           )),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'enter password';
-                        }
-                        return null;
-                      },
-                      onFieldSubmitted: (val){
-                        Utils.fieldFocusChange(_passwordFocusNode, _confirmationFocusNode, context);
+                      onFieldSubmitted: (val) {
+                        Utils.fieldFocusChange(_passwordFocusNode,
+                            _confirmationFocusNode, context);
                       },
                     ),
                   ),
@@ -157,25 +156,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: TextFormField(
                         obscureText: _confirmationVisible,
                         focusNode: _confirmationFocusNode,
-                        controller: cofirmationController,
-                        onChanged: (value){
-                          if(value != passwordController.text){
-                            setState(() {
-                              mismatch = true;
-                            });
-                          }else{
-                            setState(() {
-                              mismatch = false;
-                            });
-                          }
-                        },
+                        controller: confirmationController,
                         decoration: InputDecoration(
-                            border:  OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: mismatch ? Colors.red : Utils.buttonColorBlue
-                              ),
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(10))),
+                            border: OutlineInputBorder(
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(10))),
                             hintText: "Confirm Password",
                             suffixIcon: GestureDetector(
                               onTap: () {
@@ -193,18 +178,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       color: Utils.greyColor,
                                     ),
                             )),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 're-enter password';
-                          }
-                          return null;
-                        },
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding:  EdgeInsets.only(right: width/2, left: 5,top: 5),
-                    child: Text(mismatch ? Utils.mismatch : '',style: const TextStyle(color: Utils.redColor),),
                   ),
                 ],
               )),
@@ -213,21 +188,50 @@ class _SignUpScreenState extends State<SignUpScreen> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(bottom: 30),
         child: RoundButton(
+            loading: authviewModal.signUpLoading,
             textColor: Utils.whiteColor,
             fontSize: 20,
             backgroundColor: Utils.buttonColorBlue,
             text: 'Create Account',
             ontap: () {
-              print(height);
-              print(width);
-              if (_formKey.currentState!.validate()) {
+              if (nameController.text.isEmpty) {
+                Utils.toastMessage('Please Enter Name');
+              } else if (contactController.text.isEmpty) {
+                Utils.toastMessage('Please Enter Mobile No.');
+              } else if (contactController.text.length < 10) {
+                Utils.toastMessage('Please Enter 10 Digit Mobile No.');
+              } else if (passwordController.text.toString() !=
+                  confirmationController.text.toString()) {
+                Utils.toastMessage('Sorry! Password Mismatch');
+              } else if (passwordController.text.isEmpty) {
+                Utils.toastMessage('Please Enter Password');
+              } else if (passwordController.text.length < 3) {
+                Utils.toastMessage('Please Enter 6 digit Password');
+              } else {
+                Map data = {
+                  'name': nameController.text.toString(),
+                  // admin@mail.com
+                  'password': passwordController.text.toString(),
+                  // 12345
+                  'phone': contactController.text.toString(),
+                };
+                authviewModal.signUpApi(data, context);
+                print(data);
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => OtpScreen(
-                            mobController:
-                            contactController.text.toString())));
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => OtpScreen(
+                                  mobController:
+                                  contactController.text.toString())));
               }
+              // if (_formKey.currentState!.validate()) {
+              //   Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //           builder: (context) => OtpScreen(
+              //               mobController:
+              //               contactController.text.toString())));
+              // }
             }),
       ),
     );
