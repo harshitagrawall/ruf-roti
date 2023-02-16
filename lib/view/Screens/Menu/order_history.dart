@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
 
 
 class OrderHistory extends StatefulWidget {
@@ -26,31 +27,32 @@ class _OrderHistoryState extends State<OrderHistory> {
               child: TextFormField(
                   decoration: InputDecoration(
                     hintText: 'Search by Shop or Item',
-                      hintStyle: const TextStyle(fontWeight: FontWeight.w500,color: Colors.grey),
+                      hintStyle: const TextStyle(fontWeight: Utils.buttonWeightHeavy,color: Utils.greyColor),
                       prefixIcon: const Icon(
                         Icons.search,
                         color: Colors.red,
                       ),
-                      suffixIcon: const Icon(Icons.mic, color: Colors.red),
+                      suffixIcon: const Icon(Icons.mic, color: Utils.redColor),
                       border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey.shade50)))),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Card(
+                elevation: 6,
                 child: Column(
                   children: [
                     Container(
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey, width: 0.2)),
+                            border: Border.all(color: Utils.greyColor, width: 0.2)),
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8, vertical: 8),
                         child: ListTile(
                           leading: const CircleAvatar(
                               child: Icon(Icons.emoji_food_beverage)),
-                          title: const Text('Apna Sweets',style: TextStyle(height: 1.5,fontSize: 15,fontWeight: FontWeight.w500),),
+                          title: const Text('Apna Sweets',style: TextStyle(height: 1.5,fontSize: 15,fontWeight: Utils.buttonWeightHeavy),),
                           subtitle: const Text(
-                              'Old Palasia, Indore\n24 mins',style: TextStyle(height: 1.5,fontSize: 12,fontWeight: FontWeight.w500),),
+                              'Old Palasia, Indore\n24 mins',style: TextStyle(height: 1.5,fontSize: 12,fontWeight: Utils.buttonWeightHeavy),),
                           trailing: Stack(children: [
                             OutlinedButton(
                                 onPressed: () {}, child: const Text('Delivered'))
@@ -58,7 +60,7 @@ class _OrderHistoryState extends State<OrderHistory> {
                         )),
                     Container(
                       decoration: BoxDecoration(
-                          border: Border.all(width :0.2 ,color: Colors.grey.shade400)),
+                          border: Border.all(width :0.2 ,color: Utils.grey400)),
                       child: Column(
                         children: [
                           Container(
@@ -73,8 +75,8 @@ class _OrderHistoryState extends State<OrderHistory> {
                                   padding:
                                   EdgeInsets.only(left: _width * 0.04),
                                   child: const Text(
-                                    '1 x BeetRoot',
-                                    style: TextStyle(fontWeight: FontWeight.w600,fontSize: 12,),
+                                    '2 x Apples',
+                                    style: TextStyle(fontWeight: Utils.buttonWeightHeavy,fontSize: 12,),
                                   ),
                                 ),
                                 const SizedBox(height: 6,),
@@ -82,12 +84,12 @@ class _OrderHistoryState extends State<OrderHistory> {
                                   padding:
                                   EdgeInsets.only(left: _width * 0.04),
                                   child: const Text('2 x Tomatoes',
-                                      style: TextStyle(fontWeight: FontWeight.w600,fontSize: 12,)),
+                                      style: TextStyle(fontWeight: Utils.buttonWeightHeavy,fontSize: 12,)),
                                 )
                               ],
                             ),
                           ),
-                           Divider(color: Colors.grey,thickness : 0.3,indent: _width * 0.03,endIndent: _width * 0.03,),
+                           Divider(color: Utils.greyColor,thickness : 0.3,indent: _width * 0.03,endIndent: _width * 0.03,),
                           Container(
                             padding: const EdgeInsets.symmetric(vertical: 6),
                             child: Row(
@@ -99,21 +101,21 @@ class _OrderHistoryState extends State<OrderHistory> {
                                         right: _width * 0.1,
                                         bottom: 2),
                                     child:  Text('10th Feb 2023 at 12:50 pm',
-                                        style: TextStyle(fontSize: 12,color: Colors.grey.shade600))),
+                                        style: TextStyle(fontSize: 12,color: Utils.buttonColorGrey))),
                                 Padding(
                                   padding: EdgeInsets.only(right: _width * 0.075),
                                   child: const Text('₹ 126.65',
-                                      style: TextStyle(fontWeight: FontWeight.w600,fontSize: 12,)),
+                                      style: TextStyle(fontWeight: Utils.buttonWeightHeavy,fontSize: 12,)),
                                 ),
                               ],
                             ),
                           ),
-                           Divider(color: Colors.grey,thickness: 0.5,indent: _width * 0.03,endIndent: _width * 0.03,),
+                           Divider(color: Utils.greyColor,thickness: 0.5,indent: _width * 0.03,endIndent: _width * 0.03,),
                           Container(
                               padding:  EdgeInsets.symmetric(vertical: 6,horizontal: _width * 0.05),
                               child: Row(
                                 children:  [
-                                  const Text('Rate',style: TextStyle(color: Colors.red,fontWeight: FontWeight.w500),),
+                                  const Text('Rate',style: TextStyle(color: Utils.redColor,fontWeight: Utils.buttonWeightHeavy),),
                                   SizedBox(width: _width *0.02,),
                                   RatingBar.builder(
                                     initialRating: 0,

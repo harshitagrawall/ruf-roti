@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/view/Screens/home_screen.dart';
-import 'package:wireframe_flaxen/view/Screens/menu.dart';
-import 'package:wireframe_flaxen/view/Screens/orders.dart';
-import 'package:wireframe_flaxen/view/Screens/search.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/view/Screens/Home/home_screen.dart';
+import 'package:wireframe_flaxen/view/Screens/Menu/menu.dart';
+import 'package:wireframe_flaxen/view/Screens/Home/orders.dart';
+import 'package:wireframe_flaxen/view/Screens/Home/search.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -29,7 +30,7 @@ class HomeState extends State<Home> {
           unselectedItemColor: Colors.blue,
           selectedItemColor: Colors.black,
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
+          backgroundColor: Utils.whiteColor,
           onTap: (_index) {
             setState(() {
               currentindex = _index;

@@ -6,6 +6,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -19,9 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
   var device_size, height, width;
   var location = 'Vijay Nagar, Indore';
   final searchController = TextEditingController();
-  double _review = 4.3;
-  String _restro = 'Sabji Store';
-  String _timing = "30-32 min. | Free deleviery on order above \$15";
+  final double _review = 4.3;
+  final String _restro = 'Sabji Store';
+  final String _timing = "30-32 min. | Free delivery on order above \$15";
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.search),
                     // icon: Icon(Icons.search),
-                    hintText: 'Search Cuisines, Restauranrs, Stores or Items',
+                    hintText: 'Search Cuisines, Restaurants, Stores or Items',
                     hintStyle: TextStyle(color: Colors.grey),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -98,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Image(
               height: width / 2.45,
               width: double.infinity,
-              image: AssetImage('images/rf logo.jpeg'),
+              image: const AssetImage('images/rf logo.jpeg'),
             ),
             SizedBox(
               height: width / 29.9,
@@ -109,17 +110,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 Image(
                   height: width / 5.6,
                   width: width / 5.6,
-                  image: AssetImage('images/rf logo.jpeg'),
+                  image: const AssetImage('images/rf logo.jpeg'),
                 ),
                 Image(
                   height: width / 5.6,
                   width: width / 5.6,
-                  image: AssetImage('images/rf logo.jpeg'),
+                  image: const AssetImage('images/rf logo.jpeg'),
                 ),
                 Image(
                   height: width / 5.6,
                   width: width / 5.6,
-                  image: AssetImage('images/rf logo.jpeg'),
+                  image: const AssetImage('images/rf logo.jpeg'),
                 ),
                 // ignore: sized_box_for_whitespace
                 Container(
@@ -245,7 +246,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Text(
                                     _timing,
                                     style:
-                                        TextStyle(color: Colors.grey.shade400),
+                                        TextStyle(color: Utils.grey400),
                                   ),
                                 ],
                               ),

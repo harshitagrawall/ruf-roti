@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/view/Screens/navigation.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/view/Screens/Home/navigation.dart';
 
 
 class Experience extends StatefulWidget {
@@ -17,7 +18,7 @@ class _ExperienceState extends State<Experience> {
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Utils.whiteColor,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

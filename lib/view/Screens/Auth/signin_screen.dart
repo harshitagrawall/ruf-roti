@@ -26,7 +26,13 @@ class _SignInScreenState extends State<SignInScreen> {
     var height = device_size.height;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign In'),
+        centerTitle: true,
+        elevation: 0,
+        iconTheme: const IconThemeData(
+          color: Utils.greyColor
+        ),
+        backgroundColor: Utils.whiteColor,
+        title:  Text('Sign In',style: TextStyle(color: Utils.grey500,fontWeight: Utils.buttonWeight300),),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -43,7 +49,7 @@ class _SignInScreenState extends State<SignInScreen> {
               decoration: const InputDecoration(
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(5))),
-                hintText: "Mobile No:-",
+                hintText: "Mobile No",
               ),
               onFieldSubmitted: (val){
                 Utils.fieldFocusChange(_emailFocusNode, _passwordFocusNode, context);
@@ -69,11 +75,11 @@ class _SignInScreenState extends State<SignInScreen> {
                       child: _passwordVisible
                           ? const Icon(
                               Icons.visibility_off,
-                              color: Colors.grey,
+                              color: Utils.greyColor,
                             )
                           : const Icon(
                               Icons.visibility,
-                              color: Colors.grey,
+                              color: Utils.greyColor,
                             ))),
             ),
             Row(
@@ -84,13 +90,15 @@ class _SignInScreenState extends State<SignInScreen> {
                       alignment: Alignment.centerLeft,
                     ),
                     onPressed: () {},
-                    child: const Text('Forgot your password')),
+                    child:  Text('Forgot your password',style: TextStyle(color: Utils.grey500),)),
               ],
             ),
             const SizedBox(
               height: 100,
             ),
-            RoundButton(text: 'Sign In', ontap: () {}),
+            RoundButton( textColor: Utils.whiteColor,
+                fontSize: 20,
+                backgroundColor: Utils.buttonColorBlue,text: 'Sign In', ontap: () {}),
             TextButton(
                 onPressed: () {
                   // Navigator.push(
@@ -99,7 +107,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   //         builder: (context) => const SignUpScreen()));
                   Navigator.pushNamed(context, RoutesName.signup);
                 },
-                child: const Text("Need An Account? Sign Up")),
+                child:  Text("Need An Account? Sign Up",style: TextStyle(color: Utils.buttonColorGrey,fontWeight: Utils.buttonWeight400),)),
           ],
         ),
       ),

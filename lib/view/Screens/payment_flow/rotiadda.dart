@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
 
 
 class RotiAdda extends StatefulWidget {
@@ -135,14 +136,14 @@ class _RotiAddaState extends State<RotiAdda> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextButton(
                 style:
-                    TextButton.styleFrom(backgroundColor: Colors.grey.shade400),
+                    TextButton.styleFrom(backgroundColor: Utils.buttonColorGrey),
                 onPressed: () {
                   Navigator.pushNamed(context, RoutesName.orders);
 
                 },
                 child: const Text(
                   'total amount 26.65\$',
-                  style: TextStyle(color: Colors.white, fontSize: 25),
+                  style: TextStyle(color: Colors.white,fontWeight: Utils.buttonWeight, fontSize: 25),
                 )),
           ),
         ),

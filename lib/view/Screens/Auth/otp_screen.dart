@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
 
 // import 'package:flutter/src/widgets/container.dart';
 // import 'package:flutter/src/widgets/framework.dart';
@@ -77,10 +78,13 @@ class _OtpScreenState extends State<OtpScreen> {
                     height: 15,
                   ),
                   RoundButton(
+                      textColor: Utils.whiteColor,
+                      fontSize: 20,
+                      backgroundColor: Utils.buttonColorBlue,
                       text: 'Submit',
                       ontap: () {
                         if (_formKey.currentState!.validate()) {
-                          // Navigator.pushnaAndRemoveUntil(context,
+                          // Navigator.pushAndRemoveUntil(context,
                           //     MaterialPageRoute(
                           //   builder: (BuildContext context) {
                           //     return const AddressScreen();

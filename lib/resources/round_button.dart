@@ -3,11 +3,18 @@ import 'package:flutter/material.dart';
 class RoundButton extends StatelessWidget {
   final String text;
   var ontap;
-
+  bool isLoading;
+  double  fontSize;
+  Color textColor;
+  Color backgroundColor;
    RoundButton({
     Key? key,
     required this.text,
     required this.ontap,
+     required this.fontSize,
+     required this.textColor,
+     required this.backgroundColor,
+      this.isLoading = false
   }) : super(key: key);
 
   @override
@@ -17,11 +24,11 @@ class RoundButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: TextButton(
-            style: TextButton.styleFrom(backgroundColor: Colors.lightBlueAccent),
+            style: TextButton.styleFrom(backgroundColor: backgroundColor),
             onPressed: ontap,
             child: Text(
               text,
-              style: const TextStyle(color: Colors.white, fontSize: 25),
+              style:  TextStyle(color: textColor, fontSize: fontSize),
             )),
       ),
     );

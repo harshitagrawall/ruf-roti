@@ -14,7 +14,7 @@ class _RecentOrdersState extends State<RecentOrders> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Orders Screen'),
+        title: const Text('Orders Screen'),
       ),
     );
   }

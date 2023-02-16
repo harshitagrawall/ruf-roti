@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
-
+import 'package:wireframe_flaxen/Utils/utils.dart';
 class HelloScreen extends StatefulWidget {
   const HelloScreen({Key? key}) : super(key: key);
 
@@ -39,6 +39,9 @@ class _HelloScreenState extends State<HelloScreen> {
             height: 80,
           ),
           RoundButton(
+              textColor: Utils.whiteColor,
+              fontSize: 20,
+              backgroundColor: Utils.buttonColorBlue,
               text: 'Sign In',
               ontap: () {
                 // Navigator.push(
@@ -52,12 +55,15 @@ class _HelloScreenState extends State<HelloScreen> {
           ),
           const Text(
             'OR',
-            style: TextStyle(fontSize: 20, color: Colors.grey),
+            style: TextStyle(fontSize: 20, color: Utils.greyColor),
           ),
           const SizedBox(
             height: 15,
           ),
           RoundButton(
+              textColor: Utils.whiteColor,
+              fontSize: 20,
+              backgroundColor: Utils.buttonColorBlue,
               text: 'Sign Up',
               ontap: () {
                 // Navigator.push(

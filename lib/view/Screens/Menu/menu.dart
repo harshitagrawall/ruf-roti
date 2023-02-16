@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -17,9 +18,9 @@ class _MenuState extends State<Menu> {
     return Scaffold(
         appBar: AppBar(
           iconTheme: const IconThemeData(
-            color: Colors.black,
+            color: Utils.blackColor,
           ),
-          backgroundColor: Colors.white,
+          backgroundColor:Utils.whiteColor,
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -37,7 +38,7 @@ class _MenuState extends State<Menu> {
                     width: double.infinity,
                     height: 100,
                     child: Card(
-                      color: Colors.grey.shade300,
+                      color: Utils.grey100,
                       elevation: 10,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,13 +53,13 @@ class _MenuState extends State<Menu> {
                                   'Mansi Shah',
                                   style: TextStyle(
                                       fontSize: 20,
-                                      color: Colors.grey.shade500),
+                                      color: Utils.grey500),
                                 ),
                                 Text(
                                   'mansishah26032gmail.com',
                                   style: TextStyle(
                                       fontSize: 17,
-                                      color: Colors.grey.shade500),
+                                      color: Utils.grey500),
                                 ),
                                 Row(
                                   children: [
@@ -66,7 +67,7 @@ class _MenuState extends State<Menu> {
                                       'View Activity',
                                       style: TextStyle(
                                           fontSize: 10,
-                                          color: Colors.grey.shade500),
+                                          color: Utils.grey500),
                                     ),
                                     const Icon(
                                         size: 10, Icons.arrow_forward_ios),
@@ -79,12 +80,16 @@ class _MenuState extends State<Menu> {
                             padding: const EdgeInsets.all(10),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                CircleAvatar(
-                                  radius: 35,
-                                  backgroundColor: Colors.grey.shade500,
-                                  child: const Icon(size: 50, Icons.person),
+                              children:  [
+                                 CircleAvatar(
+                                   radius:31,
+                                   backgroundColor: Utils.buttonColorGrey,
+                                   child: CircleAvatar(
+                                    radius: 30,
+                                    backgroundColor: Utils.whiteColor,
+                                    child:  Icon(size: 50, Icons.person,color: Utils.buttonColorGrey,),
                                 ),
+                                 ),
                               ],
                             ),
                           )
@@ -117,7 +122,7 @@ class _MenuState extends State<Menu> {
                     Navigator.pushNamed(context, RoutesName.wallet);
                   },
                   child: const ListTile(
-                    leading: Icon(Icons.history),
+                    leading: Icon(Icons.account_balance_wallet_outlined),
                     title: Text('Wallet'),
                     trailing: Icon(Icons.arrow_forward_ios),
                   ),

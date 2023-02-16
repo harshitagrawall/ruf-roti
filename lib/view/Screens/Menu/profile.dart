@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -35,9 +36,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const Text(
                 'Edit your Profile',
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Utils.buttonColorBlue,
                     fontSize: 16,
-                    fontWeight: FontWeight.w400),
+                    fontWeight: Utils.buttonWeight400),
               ),
               const SizedBox(
                 height: 25,
@@ -45,14 +46,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Stack(
                 alignment: AlignmentDirectional.topEnd,
                 children: [
-                const CircleAvatar(
-                radius: 45,
-                backgroundColor: Colors.white,
-                child:  Icon(size: 50, Icons.person),
+                CircleAvatar(
+                  radius: 46,
+                  backgroundColor: Utils.buttonColorGrey,
+                  child:  CircleAvatar(
+                  radius: 45,
+                  backgroundColor: Utils.whiteColor,
+                  child:  Icon(size: 50, Icons.person,color: Utils.buttonColorGrey,),
               ),
+                ),
                   Container(
                     decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.white),
+                        shape: BoxShape.circle, color: Utils.whiteColor),
                     child: const Icon(
                       Icons.edit,
                       size: 22,
@@ -152,7 +157,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   onTap: () {},
                   child: Container(
                     decoration:  BoxDecoration(
-                        color: Colors.grey.shade800,
+                        color: Colors.grey.shade900,
                       borderRadius: const BorderRadius.all(Radius.circular(6.0))
                     ),
                       height: 40,
@@ -160,7 +165,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: const Center(
                           child: Text(
                         'Update Details',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Utils.whiteColor),
                       ))))
             ],
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
 
 
 class PaymentDone extends StatefulWidget {
@@ -42,9 +43,9 @@ class _PaymentDoneState extends State<PaymentDone> {
               ),
             ),
 
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
 
-            Text('Oreder Confirmed!',style: TextStyle(fontSize: 30,color: Colors.grey),),
+            const Text('Order Confirmed!',style: TextStyle(fontSize: 30,color: Colors.grey),),
           ],
         ),
       ),
@@ -56,13 +57,13 @@ class _PaymentDoneState extends State<PaymentDone> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextButton(
                 style: TextButton.styleFrom(
-                    backgroundColor: Colors.grey.shade400),
+                    backgroundColor: Utils.buttonColorGrey),
                 onPressed: () {
                   Navigator.pushNamed(context, RoutesName.deliverystatus);
                 },
                 child: const Text(
                   'Track Order',
-                  style: TextStyle(color: Colors.white, fontSize: 25),
+                  style: TextStyle(color: Colors.white, fontWeight: Utils.buttonWeight, fontSize: 25),
                 )),
           ),
         ),

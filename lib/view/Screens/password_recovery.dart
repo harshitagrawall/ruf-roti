@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
 
 class PasswordRecovery extends StatefulWidget {
   const PasswordRecovery({Key? key}) : super(key: key);
@@ -52,11 +53,11 @@ class _PasswordRecoveryState extends State<PasswordRecovery> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12.0),
-                      color: Colors.blue
+                      color: Utils.buttonColorBlue
                     ),
                     height: 50,
                     width: double.infinity,
-                    child: const Center(child:  Text('Next',style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),)),
+                    child: const Center(child:  Text('Next',style: TextStyle(fontSize: 18,color: Utils.whiteColor,fontWeight: FontWeight.w500),)),
                   ),
                 ),
               )

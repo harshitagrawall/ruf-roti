@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wireframe_flaxen/Utils/utils.dart';
 
 class WalletScreen extends StatefulWidget {
   const WalletScreen({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class _WalletScreenState extends State<WalletScreen> {
               children: [
                 Container(
                   height: size.width * 0.15,
-                  color: Colors.blue,
+                  color: Utils.buttonColorBlue,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -39,7 +40,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         child: Text(
                           'Update your Wallet',
                           style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.w500),
+                              color: Utils.whiteColor, fontWeight: Utils.buttonWeightHeavy),
                         ),
                       ),
                       Row(
@@ -48,13 +49,13 @@ class _WalletScreenState extends State<WalletScreen> {
                               padding: EdgeInsets.symmetric(horizontal: 8.0),
                               child: Text(
                                 '0.0',
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Utils.whiteColor),
                               )),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 8.0),
                             child: Icon(
                               Icons.account_balance_wallet,
-                              color: Colors.white,
+                              color: Utils.whiteColor,
                             ),
                           ),
                         ],
@@ -77,7 +78,7 @@ class _WalletScreenState extends State<WalletScreen> {
                             hintStyle: TextStyle(color: Colors.grey),
                             border: OutlineInputBorder(
                                 borderSide: BorderSide(
-                              color: Colors.blue,
+                              color: Utils.buttonColorBlue,
                             ))),
                       ),
                       Row(
@@ -107,7 +108,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         onTap: () {},
                         child: Container(
                           decoration: const BoxDecoration(
-                              color: Colors.blue,
+                              color: Utils.buttonColorBlue,
                               borderRadius:
                                   BorderRadius.all(Radius.circular(6))),
                           padding: const EdgeInsets.symmetric(vertical: 12.0),
@@ -116,8 +117,8 @@ class _WalletScreenState extends State<WalletScreen> {
                               textAlign: TextAlign.center,
                               'Add money to wallet',
                               style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500)),
+                                  color: Utils.whiteColor,
+                                  fontWeight:Utils.buttonWeightHeavy)),
                         ),
                       ),
                       const SizedBox(

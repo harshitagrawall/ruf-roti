@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
-import 'package:wireframe_flaxen/view/Screens/otp_screen.dart';
+import 'package:wireframe_flaxen/view/Screens/Auth/otp_screen.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -25,6 +25,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   late bool _passwordVisible = true;
   late bool _confirmationVisible = true;
+  late bool mismatch = false;
+  late bool _checked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
    var width = _device_size.width;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign Up'),
+
+        iconTheme: const IconThemeData(
+          color: Colors.grey
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: const Text('Sign Up',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300),),
       ),
       body: Column(
         children: [
@@ -49,15 +58,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: TextFormField(
                       controller: nameController,
                       focusNode: _nameFocusNode,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(
+                      decoration:  InputDecoration(
+                        fillColor: Colors.grey.shade900,
+                        border: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10))),
                         hintText: "Name",
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'enter the name';
+                          return 'Enter the name';
                         }
                         return null;
                       },
@@ -82,7 +92,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10))),
-                        hintText: "Mobile No:-",
+                        hintText: "Mobile No",
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -148,10 +158,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         obscureText: _confirmationVisible,
                         focusNode: _confirmationFocusNode,
                         controller: cofirmationController,
+                        onChanged: (value){
+                          if(value != passwordController.text){
+                            setState(() {
+                              mismatch = true;
+                            });
+                          }else{
+                            setState(() {
+                              mismatch = false;
+                            });
+                          }
+                        },
                         decoration: InputDecoration(
-                            border: const OutlineInputBorder(
+                            border:  OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: mismatch ? Colors.red : Utils.buttonColorBlue
+                              ),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
+                                    const BorderRadius.all(Radius.circular(10))),
                             hintText: "Confirm Password",
                             suffixIcon: GestureDetector(
                               onTap: () {
@@ -162,11 +186,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: _confirmationVisible
                                   ? (const Icon(
                                       Icons.visibility_off,
-                                      color: Colors.grey,
+                                      color: Utils.greyColor,
                                     ))
                                   : const Icon(
                                       Icons.visibility,
-                                      color: Colors.grey,
+                                      color: Utils.greyColor,
                                     ),
                             )),
                         validator: (value) {
@@ -178,13 +202,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding:  EdgeInsets.only(right: width/2, left: 5,top: 5),
+                    child: Text(mismatch ? Utils.mismatch : '',style: const TextStyle(color: Utils.redColor),),
+                  ),
                 ],
               )),
         ],
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 30),
+        padding: const EdgeInsets.only(bottom: 30),
         child: RoundButton(
+            textColor: Utils.whiteColor,
+            fontSize: 20,
+            backgroundColor: Utils.buttonColorBlue,
             text: 'Create Account',
             ontap: () {
               print(height);
