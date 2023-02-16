@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Utils/routes_name.dart';
-import 'package:wireframe_flaxen/resources/round_button.dart';
+import 'package:wireframe_flaxen/Utils//routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
+import 'package:wireframe_flaxen/resources/round_button.dart';
 class HelloScreen extends StatefulWidget {
   const HelloScreen({Key? key}) : super(key: key);
 
@@ -39,9 +40,9 @@ class _HelloScreenState extends State<HelloScreen> {
             height: 80,
           ),
           RoundButton(
-              textColor: Utils.whiteColor,
+              textColor: Color.whiteColor,
               fontSize: 20,
-              backgroundColor: Utils.buttonColorBlue,
+              backgroundColor: Color.buttonColorBlue,
               text: 'Sign In',
               ontap: () {
                 // Navigator.push(
@@ -55,21 +56,22 @@ class _HelloScreenState extends State<HelloScreen> {
           ),
           const Text(
             'OR',
-            style: TextStyle(fontSize: 20, color: Utils.greyColor),
+            style: TextStyle(fontSize: 20, color: Color.greyColor),
           ),
           const SizedBox(
             height: 15,
           ),
           RoundButton(
-              textColor: Utils.whiteColor,
+              textColor: Color.whiteColor,
               fontSize: 20,
-              backgroundColor: Utils.buttonColorBlue,
+              backgroundColor: Color.buttonColorBlue,
               text: 'Sign Up',
               ontap: () {
                 // Navigator.push(
                 //     context,
                 //     MaterialPageRoute(
                 //         builder: (context) => const SignUpScreen()));
+                Utils.removeFocus(context);
                 Navigator.pushNamed(context, RoutesName.signup);
               }),
           const SizedBox(

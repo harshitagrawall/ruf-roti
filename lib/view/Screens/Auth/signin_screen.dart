@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:wireframe_flaxen/Utils/routes.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
@@ -31,12 +31,12 @@ class _SignInScreenState extends State<SignInScreen> {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Utils.greyColor),
-        backgroundColor: Utils.whiteColor,
+        iconTheme: const IconThemeData(color: Color.greyColor),
+        backgroundColor: Color.whiteColor,
         title: Text(
           'Sign In',
           style: TextStyle(
-              color: Utils.grey500, fontWeight: Utils.buttonWeight300),
+              color: Color.grey500, fontWeight: Color.buttonWeight300),
         ),
       ),
       body: Padding(
@@ -81,11 +81,11 @@ class _SignInScreenState extends State<SignInScreen> {
                       child: _passwordVisible
                           ? const Icon(
                               Icons.visibility_off,
-                              color: Utils.greyColor,
+                              color: Color.greyColor,
                             )
                           : const Icon(
                               Icons.visibility,
-                              color: Utils.greyColor,
+                              color: Color.greyColor,
                             ))),
             ),
             Row(
@@ -98,7 +98,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     onPressed: () {},
                     child: Text(
                       'Forgot your password',
-                      style: TextStyle(color: Utils.grey500),
+                      style: TextStyle(color: Color.grey500),
                     )),
               ],
             ),
@@ -107,9 +107,9 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             RoundButton(
                 loading: authviewModal.loading,
-                textColor: Utils.whiteColor,
+                textColor: Color.whiteColor,
                 fontSize: 20,
-                backgroundColor: Utils.buttonColorBlue,
+                backgroundColor: Color.buttonColorBlue,
                 text: 'Sign In',
                 ontap: () {
                   if (emailController.text.isEmpty) {
@@ -136,8 +136,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Text(
                   "Need An Account? Sign Up",
                   style: TextStyle(
-                      color: Utils.buttonColorGrey,
-                      fontWeight: Utils.buttonWeight400),
+                      color: Color.buttonColorGrey,
+                      fontWeight: Color.buttonWeight400),
                 )),
           ],
         ),

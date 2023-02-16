@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -12,6 +13,12 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,7 +35,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       children:  [
                         Row(
                           children: [
-                            Text('Delivery',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22,color: Utils.buttonColorGrey),),
+                            Text('Delivery',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22,color: Color.buttonColorGrey),),
                             const Text('pickup',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 22,color: Colors.grey))
                           ],
                         ),
@@ -42,7 +49,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     child: Column(
                       children:  [CircleAvatar(
                         radius: 24,
-                        backgroundColor:Utils.buttonColorGrey,child: const Icon(Icons.person,color: Utils.whiteColor,size: 35,),)],
+                        backgroundColor:Color.buttonColorGrey,child: const Icon(Icons.person,color: Color.whiteColor,size: 35,),)],
                     ),
                   )
                 ],
@@ -57,17 +64,20 @@ class _SearchScreenState extends State<SearchScreen> {
                     hintText: 'Search cuisines and items',
                     prefixIcon:  Icon(Icons.search_sharp),
                     suffixIcon: Icon(Icons.mic),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none
-                    )
+                    border:  OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 1.0,
+                            color: Color.greyColor
+                        )
+                    ),
                   ),
                 ),
-              Divider(color: Colors.grey.shade400,),
+              Divider(color: Color.grey400,),
                Card(
                    child: ListTile(
                      leading:  Image.network('https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834'),
-                     title: Text('Apples',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16,color: Colors.grey.shade900)),
-                     subtitle: Text('Fruit',style: TextStyle(fontWeight: FontWeight.w200,fontSize: 12,color: Colors.grey.shade500)),
+                     title: Text('Apples',style: TextStyle(fontWeight: Color.buttonWeight400,fontSize: 16,color: Color.grey900)),
+                     subtitle: Text('Fruit',style: TextStyle(fontWeight: Color.buttonWeight,fontSize: 12,color: Color.grey500)),
                    )
                ),
 

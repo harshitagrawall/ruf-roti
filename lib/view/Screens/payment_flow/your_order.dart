@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 
 import 'package:wireframe_flaxen/resources/round_button.dart';
 
@@ -79,13 +80,13 @@ class _YourOrderState extends State<YourOrder> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextButton(
                 style:
-                    TextButton.styleFrom(backgroundColor: Utils.buttonColorGrey),
+                    TextButton.styleFrom(backgroundColor: Color.buttonColorGrey),
                 onPressed: () {
                   Navigator.pushNamed(context, RoutesName.checkout);
                 },
                 child: const Text(
                   'total amount 26.65\$',
-                  style: TextStyle(color: Colors.white,fontWeight: Utils.buttonWeight, fontSize: 25),
+                  style: TextStyle(color: Colors.white,fontWeight: Color.buttonWeight, fontSize: 25),
                 )),
           ),
         ),

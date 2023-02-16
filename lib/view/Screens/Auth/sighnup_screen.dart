@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 import 'package:wireframe_flaxen/view/Screens/Auth/otp_screen.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
 import 'package:wireframe_flaxen/view_modal/auth_view_modal.dart';
@@ -171,11 +172,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: _confirmationVisible
                                   ? (const Icon(
                                       Icons.visibility_off,
-                                      color: Utils.greyColor,
+                                      color: Color.greyColor,
                                     ))
                                   : const Icon(
                                       Icons.visibility,
-                                      color: Utils.greyColor,
+                                      color: Color.greyColor,
                                     ),
                             )),
                       ),
@@ -189,9 +190,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         padding: const EdgeInsets.only(bottom: 30),
         child: RoundButton(
             loading: authviewModal.signUpLoading,
-            textColor: Utils.whiteColor,
+            textColor: Color.whiteColor,
             fontSize: 20,
-            backgroundColor: Utils.buttonColorBlue,
+            backgroundColor: Color.buttonColorBlue,
             text: 'Create Account',
             ontap: () {
               if (nameController.text.isEmpty) {
@@ -216,7 +217,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   'phone': contactController.text.toString(),
                 };
                 authviewModal.signUpApi(data, context);
-                print(data);
+                // print(data);
                 Navigator.push(
                           context,
                           MaterialPageRoute(

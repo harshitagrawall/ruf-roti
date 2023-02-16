@@ -2,7 +2,6 @@ import 'package:another_flushbar/flushbar_route.dart';
 import 'package:flutter/material.dart';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 class Utils {
   static void flushBarErrorMessage(String message, BuildContext context) {
     showFlushbar(
@@ -41,34 +40,7 @@ class Utils {
     FocusScope.of(context).requestFocus(nextFocus);
   }
 
-  static const String mismatch = 'Passwords do not match';
-  static const startYellow = Colors.yellow;
-
-  static const buttonColorBlue = Colors.blue;
-
-  static const Color blackColor= Colors.black;
-
-  static final grey100 = Colors.grey.shade100;
-
-  static final grey400 = Colors.grey.shade400;
-
-  static final grey500 = Colors.grey.shade500;
-
-  static final buttonColorGrey = Colors.grey.shade600;
-
-  static final grey900 = Colors.grey.shade900;
-
-  static const Color whiteColor = Colors.white;
-
-  static const Color redColor = Colors.red;
-
-  static const Color greyColor = Colors.grey;
-
-  static const FontWeight buttonWeight = FontWeight.w200;
-
-  static const FontWeight buttonWeight300 = FontWeight.w300;
-
-  static const FontWeight buttonWeight400 = FontWeight.w400;
-
-  static const FontWeight buttonWeightHeavy = FontWeight.w500;
+  static void removeFocus(BuildContext context){
+    FocusScope.of(context).unfocus();
+  }
 }

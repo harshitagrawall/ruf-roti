@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
-import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class StartScreen extends StatelessWidget {
               children: [
                 const Text(
                   "Let's get started",
-                  style: TextStyle(fontSize: 30, color: Utils.greyColor),
+                  style: TextStyle(fontSize: 30, color: Color.greyColor),
                 ),
                 const SizedBox(
                   height: 25,
@@ -42,14 +42,14 @@ class StartScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 20),
                       child: TextButton(
                           style: TextButton.styleFrom(
-                              backgroundColor: Utils.startYellow),
+                              backgroundColor: Color.startYellow),
                           onPressed: () {
                             // Navigator.push(context, MaterialPageRoute(builder: (context)=> SignInScreen()));
                             Navigator.pushNamed(context, RoutesName.hello);
                           },
                           child: const Text(
                             'Continue ' + '→',
-                            style: TextStyle(color: Utils.whiteColor, fontSize: 25),
+                            style: TextStyle(color: Color.whiteColor, fontSize: 25),
                           )),
                     ),
                   ),

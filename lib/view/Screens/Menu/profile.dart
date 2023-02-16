@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -16,6 +16,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
       _contactController.value = const TextEditingValue(text: '9080809561');
     });
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _mailController.dispose();
+    _contactController.dispose();
+    super.dispose();
   }
 
   final TextEditingController _nameController = TextEditingController();
@@ -36,9 +44,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const Text(
                 'Edit your Profile',
                 style: TextStyle(
-                    color: Utils.buttonColorBlue,
+                    color: Color.buttonColorBlue,
                     fontSize: 16,
-                    fontWeight: Utils.buttonWeight400),
+                    fontWeight: Color.buttonWeight400),
               ),
               const SizedBox(
                 height: 25,
@@ -48,16 +56,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                 CircleAvatar(
                   radius: 46,
-                  backgroundColor: Utils.buttonColorGrey,
+                  backgroundColor: Color.buttonColorGrey,
                   child:  CircleAvatar(
                   radius: 45,
-                  backgroundColor: Utils.whiteColor,
-                  child:  Icon(size: 50, Icons.person,color: Utils.buttonColorGrey,),
+                  backgroundColor: Color.whiteColor,
+                  child:  Icon(size: 50, Icons.person,color: Color.buttonColorGrey,),
               ),
                 ),
                   Container(
                     decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Utils.whiteColor),
+                        shape: BoxShape.circle, color: Color.whiteColor),
                     child: const Icon(
                       Icons.edit,
                       size: 22,
@@ -165,7 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: const Center(
                           child: Text(
                         'Update Details',
-                        style: TextStyle(color: Utils.whiteColor),
+                        style: TextStyle(color: Color.whiteColor),
                       ))))
             ],
           ),

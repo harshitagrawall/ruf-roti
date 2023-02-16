@@ -3,6 +3,7 @@ import 'package:timeline_tile/timeline_tile.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 
 class DeliveryStatus extends StatefulWidget {
   const DeliveryStatus({Key? key}) : super(key: key);
@@ -21,12 +22,12 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
-          color: Colors.black,
+          color: Color.blackColor,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Color.whiteColor,
         title: Text(
           'Delivery Status',
-          style: TextStyle(fontSize: 25, color: Colors.grey.shade400),
+          style: TextStyle(fontSize: 25, color: Color.grey400),
         ),
         centerTitle: true,
       ),
@@ -53,11 +54,11 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                 children: [
                   Text(
                     'Estimated Time  of Delivery',
-                    style: TextStyle(fontSize: 15, color: Colors.grey.shade400),
+                    style: TextStyle(fontSize: 15, color: Color.grey400),
                   ),
                   Text(
                     '9:20PM',
-                    style: TextStyle(fontSize: 15, color: Colors.grey.shade400),
+                    style: TextStyle(fontSize: 15, color: Color.grey400),
                   ),
                 ],
               ),
@@ -71,7 +72,7 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                 width: width,
                 height: 120,
                 child: Card(
-                  color: Colors.grey.shade200,
+                  color: Color.grey200,
                   elevation: 10,
                   child: Row(
                     children: [
@@ -117,7 +118,7 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                             const Text(
                               'Your Delivery Guy',
                               style:
-                                  TextStyle(fontSize: 12, color: Colors.grey),
+                                  TextStyle(fontSize: 12, color: Color.greyColor),
                             ),
                             const SizedBox(
                               height: 20,
@@ -153,7 +154,7 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
             ),
             Container(
               height: 1,
-              color: Colors.black,
+              color: Color.blackColor,
               width: width,
             ),
             const SizedBox(
@@ -169,7 +170,7 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                       Text(
                         '  Track Your Order',
                         style: TextStyle(
-                            fontSize: 22, color: Colors.grey.shade400),
+                            fontSize: 22, color: Color.grey400),
                       ),
                     ],
                   ),
@@ -276,7 +277,7 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                         isFirst: true,
                         indicatorStyle: const IndicatorStyle(
                           width: 10,
-                          color: Colors.blue,
+                          color: Color.buttonColorBlue,
                           padding: EdgeInsets.all(10),
                         ),
                         endChild: const _RightChild(
@@ -284,7 +285,7 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                           message: 'We have received your order.',
                         ),
                         beforeLineStyle: const LineStyle(
-                          color: Colors.blue,
+                          color: Color.buttonColorBlue,
                         ),
                       ),
                       TimelineTile(
@@ -292,7 +293,7 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                         lineXY: 0.1,
                         indicatorStyle: const IndicatorStyle(
                           width: 10,
-                          color: Colors.blue,
+                          color: Color.buttonColorBlue,
                           padding: EdgeInsets.all(10),
                         ),
                         endChild: const _RightChild(
@@ -300,7 +301,7 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                           message: 'Your order has been confirmed.',
                         ),
                         beforeLineStyle: const LineStyle(
-                          color: Colors.blue,
+                          color: Color.buttonColorBlue,
                         ),
                       ),
                       TimelineTile(
@@ -308,7 +309,7 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                         lineXY: 0.1,
                         indicatorStyle: const IndicatorStyle(
                           width: 10,
-                          color: Colors.blue,
+                          color: Color.buttonColorBlue,
                           padding: EdgeInsets.all(10),
                         ),
                         endChild: const _RightChild(
@@ -316,10 +317,10 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                           message: 'We are preparing your order.',
                         ),
                         beforeLineStyle: const LineStyle(
-                          color: Colors.blue,
+                          color: Color.buttonColorBlue,
                         ),
                         afterLineStyle: const LineStyle(
-                          color: Color(0xFFDADADA),
+                          color: Color.blackColor,
                         ),
                       ),
                       TimelineTile(
@@ -328,7 +329,7 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                         isLast: true,
                         indicatorStyle: const IndicatorStyle(
                           width: 10,
-                          color: Color(0xFFDADADA),
+                          color: Color.whiteColor,
                           padding: EdgeInsets.all(10),
                         ),
                         endChild: const _RightChild(
@@ -337,7 +338,7 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
                           message: 'Your order is ready for pickup.',
                         ),
                         beforeLineStyle: const LineStyle(
-                          color: Color(0xFFDADADA),
+                          color:Color.whiteColor,
                         ),
                       ),
                     ]),
@@ -356,17 +357,18 @@ class _DeliveryStatusState extends State<DeliveryStatus> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextButton(
                 style:
-                    TextButton.styleFrom(backgroundColor: Utils.buttonColorGrey),
+                    TextButton.styleFrom(backgroundColor: Color.buttonColorGrey),
                 onPressed: () {
                   // Navigator.push(
                   //     context,
                   //     MaterialPageRoute(
                   //         builder: (context) => const Experience()));
+                  Utils.removeFocus(context);
                   Navigator.pushNamed(context, RoutesName.experience);
                 },
                 child: const Text(
                   'Track Order',
-                  style: TextStyle(color: Utils.whiteColor,fontWeight: Utils.buttonWeight, fontSize: 25),
+                  style: TextStyle(color: Color.whiteColor,fontWeight: Color.buttonWeight, fontSize: 25),
                 )),
           ),
         ),
@@ -402,10 +404,10 @@ class _RightChild extends StatelessWidget {
                 title,
                 style: GoogleFonts.yantramanav(
                   color: disabled
-                      ? const Color(0xFFBABABA)
-                      : const Color(0xFF636564),
+                      ?  Color.whiteColor
+                      :  Color.whiteColor,
                   fontSize: 18,
-                  fontWeight: Utils.buttonWeightHeavy,
+                  fontWeight: Color.buttonWeightHeavy,
                 ),
               ),
               const SizedBox(height: 2),
@@ -413,8 +415,8 @@ class _RightChild extends StatelessWidget {
                 message,
                 style: GoogleFonts.yantramanav(
                   color: disabled
-                      ? const Color(0xFFD5D5D5)
-                      : const Color(0xFF636564),
+                      ? Color.whiteColor
+                      : Color.whiteColor,
                   fontSize: 16,
                 ),
               ),

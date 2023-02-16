@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 import 'package:wireframe_flaxen/view/Screens/Home/home_screen.dart';
 import 'package:wireframe_flaxen/view/Screens/Menu/menu.dart';
 import 'package:wireframe_flaxen/view/Screens/Home/orders.dart';
@@ -30,8 +31,9 @@ class HomeState extends State<Home> {
           unselectedItemColor: Colors.blue,
           selectedItemColor: Colors.black,
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Utils.whiteColor,
+          backgroundColor: Color.whiteColor,
           onTap: (_index) {
+            Utils.removeFocus(context);
             setState(() {
               currentindex = _index;
             });
