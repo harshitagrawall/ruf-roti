@@ -7,6 +7,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -23,6 +24,12 @@ class _HomeScreenState extends State<HomeScreen> {
   final double _review = 4.3;
   final String _restro = 'Sabji Store';
   final String _timing = "30-32 min. | Free delivery on order above \$15";
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -159,6 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       // Navigator.push(context,
                       //     MaterialPageRoute(builder: (context) => RotiAdda()));
+                      Utils.removeFocus(context);
                       Navigator.pushNamed(context, RoutesName.afterhome);
                     },
                     child: Card(
@@ -246,7 +254,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Text(
                                     _timing,
                                     style:
-                                        TextStyle(color: Utils.grey400),
+                                        TextStyle(color: Color.grey400),
                                   ),
                                 ],
                               ),
@@ -260,6 +268,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       // Navigator.push(context,
                       //     MaterialPageRoute(builder: (context) => RotiAdda()));
+                      Utils.removeFocus(context);
                       Navigator.pushNamed(context, RoutesName.afterhome);
                     },
                     child: Card(

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -18,9 +16,9 @@ class _MenuState extends State<Menu> {
     return Scaffold(
         appBar: AppBar(
           iconTheme: const IconThemeData(
-            color: Utils.blackColor,
+            color: Color.blackColor,
           ),
-          backgroundColor:Utils.whiteColor,
+          backgroundColor:Color.whiteColor,
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -32,13 +30,14 @@ class _MenuState extends State<Menu> {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: GestureDetector(
                   onTap: () {
+                    Utils.removeFocus(context);
                     Navigator.pushNamed(context, RoutesName.profile);
                   },
                   child: Container(
                     width: double.infinity,
                     height: 100,
                     child: Card(
-                      color: Utils.grey100,
+                      color: Color.grey100,
                       elevation: 10,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,13 +52,13 @@ class _MenuState extends State<Menu> {
                                   'Mansi Shah',
                                   style: TextStyle(
                                       fontSize: 20,
-                                      color: Utils.grey500),
+                                      color: Color.grey500),
                                 ),
                                 Text(
                                   'mansishah26032gmail.com',
                                   style: TextStyle(
                                       fontSize: 17,
-                                      color: Utils.grey500),
+                                      color: Color.grey500),
                                 ),
                                 Row(
                                   children: [
@@ -67,7 +66,7 @@ class _MenuState extends State<Menu> {
                                       'View Activity',
                                       style: TextStyle(
                                           fontSize: 10,
-                                          color: Utils.grey500),
+                                          color: Color.grey500),
                                     ),
                                     const Icon(
                                         size: 10, Icons.arrow_forward_ios),
@@ -83,11 +82,11 @@ class _MenuState extends State<Menu> {
                               children:  [
                                  CircleAvatar(
                                    radius:31,
-                                   backgroundColor: Utils.buttonColorGrey,
+                                   backgroundColor: Color.buttonColorGrey,
                                    child: CircleAvatar(
                                     radius: 30,
-                                    backgroundColor: Utils.whiteColor,
-                                    child:  Icon(size: 50, Icons.person,color: Utils.buttonColorGrey,),
+                                    backgroundColor: Color.whiteColor,
+                                    child:  Icon(size: 50, Icons.person,color: Color.buttonColorGrey,),
                                 ),
                                  ),
                               ],
@@ -106,6 +105,7 @@ class _MenuState extends State<Menu> {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: GestureDetector(
                   onTap: () {
+                    Utils.removeFocus(context);
                     Navigator.pushNamed(context, RoutesName.orderHistory);
                   },
                   child: const ListTile(
@@ -119,6 +119,7 @@ class _MenuState extends State<Menu> {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: GestureDetector(
                   onTap: () {
+                    Utils.removeFocus(context);
                     Navigator.pushNamed(context, RoutesName.wallet);
                   },
                   child: const ListTile(
@@ -132,6 +133,7 @@ class _MenuState extends State<Menu> {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: GestureDetector(
                   onTap: () {
+                    Utils.removeFocus(context);
                     Navigator.pushNamed(context, RoutesName.about);
                   },
                   child: const ListTile(
@@ -153,6 +155,7 @@ class _MenuState extends State<Menu> {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: GestureDetector(
                   onTap: () {
+                    Utils.removeFocus(context);
                     Navigator.pushNamed(context, RoutesName.help);
                   },
                   child: const ListTile(

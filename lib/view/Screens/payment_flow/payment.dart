@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
-
+import 'package:wireframe_flaxen/resources/color.dart';
 
 class PaymentMethod extends StatefulWidget {
   const PaymentMethod({super.key});
@@ -15,22 +15,19 @@ class _PaymentMethodState extends State<PaymentMethod> {
 
   @override
   Widget build(BuildContext context) {
-    int _groupValue = 1;
     var device_size = MediaQuery.of(context).size;
     var width = device_size.width;
     var height = device_size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0,
         iconTheme: const IconThemeData(
-          color: Colors.black,
+          color: Color.blackColor,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Color.whiteColor,
         title: Text(
-          'Select Payment \n Method',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 25, color: Colors.grey.shade400,fontWeight: FontWeight.w200),
+          'Select Payment Method',
+          style: TextStyle(fontSize: 25, color: Color.grey400),
         ),
         centerTitle: true,
       ),
@@ -123,15 +120,15 @@ class _PaymentMethodState extends State<PaymentMethod> {
                           ),
                         ),
                       ),
-                      const  Padding(
-                        padding:  EdgeInsets.only(left: 30),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 30),
                         child: Text('Credit Card'),
                       ),
                     ],
                   ),
                   Radio(
                       value: 1,
-                      groupValue: radioButtonValue == 'Credit Card'? 1 : 0,
+                      groupValue: radioButtonValue == 'Credit Card' ? 1 : 0,
                       onChanged: (val) {
                         setState(() {
                           radioButtonValue = 'Credit Card';
@@ -189,15 +186,15 @@ class _PaymentMethodState extends State<PaymentMethod> {
                           ),
                         ),
                       ),
-                      const   Padding(
-                        padding:  EdgeInsets.only(left: 30),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 30),
                         child: Text('Wallet Balance'),
                       ),
                     ],
                   ),
                   Radio(
                       value: 1,
-                      groupValue: radioButtonValue == 'Wallet Balance'? 1 : 0,
+                      groupValue: radioButtonValue == 'Wallet Balance' ? 1 : 0,
                       onChanged: (val) {
                         setState(() {
                           radioButtonValue = 'Wallet Balance';
@@ -223,14 +220,14 @@ class _PaymentMethodState extends State<PaymentMethod> {
                         ),
                       ),
                       const Padding(
-                        padding:  EdgeInsets.only(left: 30),
+                        padding: EdgeInsets.only(left: 30),
                         child: Text('Cash'),
                       ),
                     ],
                   ),
                   Radio(
                       value: 1,
-                      groupValue: radioButtonValue == 'Cash'? 1 : 0,
+                      groupValue: radioButtonValue == 'Cash' ? 1 : 0,
                       onChanged: (val) {
                         setState(() {
                           radioButtonValue = 'Cash';
@@ -242,7 +239,10 @@ class _PaymentMethodState extends State<PaymentMethod> {
             SizedBox(
               height: width / 8,
             ),
-            const Divider(thickness: 2,height: 1,),
+            const Divider(
+              thickness: 2,
+              height: 1,
+            ),
             SizedBox(
               height: width / 13,
             ),
@@ -260,28 +260,32 @@ class _PaymentMethodState extends State<PaymentMethod> {
               ),
             ),
             SizedBox(
-              height: width ,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Container(
-                width: width,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: TextButton(
-                      style: TextButton.styleFrom(
-                          backgroundColor: Utils.buttonColorGrey),
-                      onPressed: () {
-                        Navigator.pushNamed(context, RoutesName.paymentdone);
-                      },
-                      child: const Text(
-                        'Confirm And Pay',
-                        style: TextStyle(color: Colors.white, fontSize: 22,fontWeight: Utils.buttonWeight),
-                      )),
-                ),
-              ),
+              height: width,
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: Container(
+          width: width,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: TextButton(
+                style: TextButton.styleFrom(
+                    backgroundColor: Color.buttonColorGrey),
+                onPressed: () {
+                  Utils.removeFocus(context);
+                  Navigator.pushNamed(context, RoutesName.paymentdone);
+                },
+                child: const Text(
+                  'Confirm And Pay',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: Color.buttonWeight),
+                )),
+          ),
         ),
       ),
     );

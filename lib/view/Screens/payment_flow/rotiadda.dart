@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
 
@@ -136,14 +133,15 @@ class _RotiAddaState extends State<RotiAdda> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextButton(
                 style:
-                    TextButton.styleFrom(backgroundColor: Utils.buttonColorGrey),
+                    TextButton.styleFrom(backgroundColor: Color.buttonColorGrey),
                 onPressed: () {
+                  Utils.removeFocus(context);
                   Navigator.pushNamed(context, RoutesName.orders);
 
                 },
                 child: const Text(
                   'total amount 26.65\$',
-                  style: TextStyle(color: Colors.white,fontWeight: Utils.buttonWeight, fontSize: 25),
+                  style: TextStyle(color: Colors.white,fontWeight: Color.buttonWeight, fontSize: 25),
                 )),
           ),
         ),
@@ -153,7 +151,7 @@ class _RotiAddaState extends State<RotiAdda> {
 }
 
 class Detail {
-  var _restroName, _dishName, _dishDetail,_counter;
+   var _restroName, _dishName, _dishDetail,_counter;
 
   Detail(this._dishName, this._restroName, this._dishDetail,this._counter);
 }

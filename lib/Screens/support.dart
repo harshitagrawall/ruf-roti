@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:wireframe_flaxen/resources/color.dart';
 class Support extends StatelessWidget {
   const Support({Key? key}) : super(key: key);
 
@@ -20,7 +20,7 @@ class Support extends StatelessWidget {
             elevation: 3.0,
             child: Container(
               decoration:  BoxDecoration(
-                color: Colors.grey.shade900,
+                color: Color.grey900,
                 borderRadius: BorderRadius.circular(6)
               ),
               width: width * 0.7,
@@ -28,7 +28,7 @@ class Support extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children :  const  [
-                  Text('Contact us at 1800-000-000', style: TextStyle(color: Colors.white),),Icon(Icons.call,color: Colors.white,),
+                  Text('Contact us at 1800-000-000', style: TextStyle(color: Color.whiteColor),),Icon(Icons.call,color: Color.whiteColor,),
                     ],
               ),
             ),
@@ -39,7 +39,7 @@ class Support extends StatelessWidget {
             elevation: 3.0,
             child: Container(
               decoration:  BoxDecoration(
-                  color: Colors.grey.shade900,
+                  color: Color.grey900,
                   borderRadius: BorderRadius.circular(6)
               ),
               width: width * 0.7,
@@ -47,8 +47,8 @@ class Support extends StatelessWidget {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children :   const[
-                     Text('Whatsapp us at 07676767676', style: TextStyle(color: Colors.white)),
-                    Icon(Icons.whatshot,color: Colors.white,),]
+                     Text('Whatsapp us at 07676767676', style: TextStyle(color: Color.whiteColor)),
+                    Icon(Icons.whatshot,color: Color.whiteColor,),]
               ),),
           ),
           SizedBox(height: height* 0.04,),
@@ -57,7 +57,7 @@ class Support extends StatelessWidget {
             elevation: 3.0,
             child: Container(
               decoration:  BoxDecoration(
-                  color: Colors.grey.shade900,
+                  color: Color.grey900,
                   borderRadius: BorderRadius.circular(6)
               ),
               width: width * 0.7,
@@ -65,7 +65,7 @@ class Support extends StatelessWidget {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children :  const [
-                    Text('Mail us on info@chalobazaar.com', style: TextStyle(color: Colors.white)), Icon(Icons.email,color: Colors.white,),]
+                    Text('Mail us on info@chalobazaar.com', style: TextStyle(color:  Color.whiteColor)), Icon(Icons.email,color:  Color.whiteColor,),]
               ),
             ),
           ),
@@ -75,7 +75,7 @@ class Support extends StatelessWidget {
             elevation: 3.0,
             child: Container(
               decoration:  BoxDecoration(
-                  color: Colors.grey.shade900,
+                  color: Color.grey900,
                   borderRadius: BorderRadius.circular(6)
               ),
               width: width * 0.7,
@@ -83,7 +83,7 @@ class Support extends StatelessWidget {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children :  const [
-                    Text('Chalo Bazaar on web', style: TextStyle(color: Colors.white)),Icon(Icons.north_east_rounded,color: Colors.white,),
+                    Text('Chalo Bazaar on web', style: TextStyle(color: Color.whiteColor)),Icon(Icons.north_east_rounded,color: Color.whiteColor,),
                     ]
               ),
             ),

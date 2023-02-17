@@ -27,7 +27,7 @@ class AuthViewModal with ChangeNotifier {
     setLoading(true);
     _myRepo.logInApi(data).then((value) {
       setLoading(false);
-      Utils.toastMessage('Login Successfuly');
+      Utils.toastMessage('Login Successfully');
       print(value.toString());
     }).onError((error, stackTrace) {
       setLoading(false);

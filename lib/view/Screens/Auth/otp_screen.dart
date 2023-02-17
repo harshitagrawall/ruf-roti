@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
-
+import 'package:wireframe_flaxen/resources/color.dart';
 // import 'package:flutter/src/widgets/container.dart';
 // import 'package:flutter/src/widgets/framework.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
@@ -78,9 +78,9 @@ class _OtpScreenState extends State<OtpScreen> {
                     height: 15,
                   ),
                   RoundButton(
-                      textColor: Utils.whiteColor,
+                      textColor: Color.whiteColor,
                       fontSize: 20,
-                      backgroundColor: Utils.buttonColorBlue,
+                      backgroundColor: Color.buttonColorBlue,
                       text: 'Submit',
                       ontap: () {
                         if (_formKey.currentState!.validate()) {
@@ -90,6 +90,7 @@ class _OtpScreenState extends State<OtpScreen> {
                           //     return const AddressScreen();
                           //   },
                           // ), (route) => false);
+                          Utils.removeFocus(context);
                           Navigator.pushNamedAndRemoveUntil(
                               context, RoutesName.address, (route) => false);
                         }

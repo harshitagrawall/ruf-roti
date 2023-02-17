@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
 import 'package:wireframe_flaxen/view/Screens/Home/navigation.dart';
-
+import 'package:wireframe_flaxen/resources/color.dart';
 
 class Experience extends StatefulWidget {
   const Experience({Key? key}) : super(key: key);
@@ -16,9 +16,9 @@ class _ExperienceState extends State<Experience> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
-          color: Colors.black,
+          color: Color.blackColor,
         ),
-        backgroundColor: Utils.whiteColor,
+        backgroundColor: Color.whiteColor,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,6 +44,7 @@ class _ExperienceState extends State<Experience> {
             children: [
               InkWell(
                 onTap: () {
+                  Utils.removeFocus(context);
                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
                     builder: (BuildContext context) {
                       return Home();
@@ -57,6 +58,7 @@ class _ExperienceState extends State<Experience> {
               ),
               InkWell(
                 onTap: () {
+                  Utils.removeFocus(context);
                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
                     builder: (BuildContext context) {
                       return Home();
@@ -70,6 +72,7 @@ class _ExperienceState extends State<Experience> {
               ),
               InkWell(
                 onTap: () {
+                  Utils.removeFocus(context);
                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
                     builder: (BuildContext context) {
                       return Home();
@@ -83,6 +86,7 @@ class _ExperienceState extends State<Experience> {
               ),
               InkWell(
                 onTap: () {
+                  Utils.removeFocus(context);
                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
                     builder: (BuildContext context) {
                       return Home();
@@ -96,6 +100,7 @@ class _ExperienceState extends State<Experience> {
               ),
               InkWell(
                 onTap: () {
+                  Utils.removeFocus(context);
                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
                     builder: (BuildContext context) {
                       return Home();

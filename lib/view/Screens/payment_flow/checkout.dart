@@ -1,11 +1,7 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
-
+import 'package:wireframe_flaxen/resources/color.dart';
 
 class Checkout extends StatefulWidget {
   const Checkout({super.key});
@@ -25,12 +21,12 @@ class _CheckoutState extends State<Checkout> {
     return Scaffold(
         appBar: AppBar(
           iconTheme: const IconThemeData(
-            color: Utils.blackColor,
+            color: Color.blackColor,
           ),
-          backgroundColor: Utils.whiteColor,
+          backgroundColor: Color.whiteColor,
           title: Text(
             'Checkout',
-            style: TextStyle(fontSize: 25, color: Utils.grey400),
+            style: TextStyle(fontSize: 25, color: Color.grey400),
           ),
           centerTitle: true,
         ),
@@ -54,8 +50,8 @@ class _CheckoutState extends State<Checkout> {
                   'Your Delivery',
                   style: TextStyle(
                       fontSize: 20,
-                      color: Utils.greyColor,
-                      fontWeight: Utils.buttonWeight300),
+                      color: Color.greyColor,
+                      fontWeight: Color.buttonWeight300),
                 ),
               ],
             ),
@@ -69,8 +65,8 @@ class _CheckoutState extends State<Checkout> {
                   adress,
                   style: const TextStyle(
                       fontSize: 15,
-                      color: Utils.greyColor,
-                      fontWeight: Utils.buttonWeight300),
+                      color: Color.greyColor,
+                      fontWeight: Color.buttonWeight300),
                 ),
               ],
             ),
@@ -79,7 +75,7 @@ class _CheckoutState extends State<Checkout> {
             height: width / 4,
           ),
           Container(
-            color: Utils.blackColor,
+            color: Color.blackColor,
             width: width,
             height: 1,
           ),
@@ -96,7 +92,7 @@ class _CheckoutState extends State<Checkout> {
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w300,
-                      color: Utils.greyColor),
+                      color: Color.greyColor),
                 ),
                 Icon(size: 30, Icons.arrow_drop_down)
               ],
@@ -115,14 +111,14 @@ class _CheckoutState extends State<Checkout> {
                   style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w300,
-                      color: Utils.greyColor),
+                      color: Color.greyColor),
                 ),
                 Text(
                   '\$26.25',
                   style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w300,
-                      color: Utils.greyColor),
+                      color: Color.greyColor),
                 ),
               ],
             ),
@@ -137,14 +133,14 @@ class _CheckoutState extends State<Checkout> {
                   style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w300,
-                      color: Utils.greyColor),
+                      color: Color.greyColor),
                 ),
                 Text(
                   'Free',
                   style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w300,
-                      color: Utils.greyColor),
+                      color: Color.greyColor),
                 ),
               ],
             ),
@@ -162,14 +158,14 @@ class _CheckoutState extends State<Checkout> {
                   style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w300,
-                      color: Utils.greyColor),
+                      color: Color.greyColor),
                 ),
                 Text(
                   '\$0.28',
                   style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w300,
-                      color: Utils.greyColor),
+                      color: Color.greyColor),
                 ),
               ],
             ),
@@ -183,15 +179,15 @@ class _CheckoutState extends State<Checkout> {
                   'Service Fee Tax - GST ',
                   style: TextStyle(
                       fontSize: 15,
-                      fontWeight: Utils.buttonWeight300,
-                      color: Utils.greyColor),
+                      fontWeight: Color.buttonWeight300,
+                      color: Color.greyColor),
                 ),
                 Text(
                   '\$0.10',
                   style: TextStyle(
                       fontSize: 15,
-                      fontWeight: Utils.buttonWeight300,
-                      color: Utils.greyColor),
+                      fontWeight: Color.buttonWeight300,
+                      color: Color.greyColor),
                 ),
               ],
             ),
@@ -202,7 +198,7 @@ class _CheckoutState extends State<Checkout> {
           Container(
             height: 1,
             width: width,
-            color: Utils.blackColor,
+            color: Color.blackColor,
           ),
           SizedBox(
             height: width / 19.6,
@@ -216,15 +212,15 @@ class _CheckoutState extends State<Checkout> {
                   'Total',
                   style: TextStyle(
                       fontSize: 15,
-                      fontWeight: Utils.buttonWeight300,
-                      color: Utils.greyColor),
+                      fontWeight: Color.buttonWeight300,
+                      color: Color.greyColor),
                 ),
                 Text(
                   '\$37.51',
                   style: TextStyle(
                       fontSize: 15,
-                      fontWeight: Utils.buttonWeight300,
-                      color: Utils.greyColor),
+                      fontWeight: Color.buttonWeight300,
+                      color: Color.greyColor),
                 ),
               ],
             ),
@@ -240,17 +236,19 @@ class _CheckoutState extends State<Checkout> {
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: TextButton(
                     style: TextButton.styleFrom(
-                        backgroundColor: Utils.buttonColorGrey),
+                        backgroundColor: Color.buttonColorGrey),
                     onPressed: () {
                       // Navigator.push(
                       //     context,
                       //     MaterialPageRoute(
                       //         builder: (context) => PaymentMethod()));
+
+                      Utils.removeFocus(context);
                       Navigator.pushNamed(context, RoutesName.payment);
                     },
                     child:  const Text(
                       'Proceed To Pay',
-                      style: TextStyle(color: Utils.whiteColor,fontWeight: Utils.buttonWeight, fontSize: 25),
+                      style: TextStyle(color: Color.whiteColor,fontWeight: Color.buttonWeight, fontSize: 25),
                     )),
               ),
             ),
