@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
 import 'package:wireframe_flaxen/modal/location_modal.dart';
+import 'package:wireframe_flaxen/resources/color.dart';
 
 class AddressScreen extends StatefulWidget {
   const AddressScreen({Key? key}) : super(key: key);
@@ -37,12 +38,12 @@ class _AddressScreenState extends State<AddressScreen> {
     return Scaffold(
         appBar: AppBar(
           elevation: 2,
-          backgroundColor: Utils.whiteColor,
+          backgroundColor: Color.whiteColor,
           centerTitle: true,
           title: const Text(
             'Add Address',
             style: TextStyle(
-                color: Utils.greyColor, fontWeight: Utils.buttonWeight),
+                color: Color.greyColor, fontWeight: Color.buttonWeight),
           ),
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -52,8 +53,8 @@ class _AddressScreenState extends State<AddressScreen> {
                 controller: addressController,
                 decoration: InputDecoration(
                   hintStyle: TextStyle(
-                      color: Utils.buttonColorGrey,
-                      fontWeight: Utils.buttonWeight),
+                      color: Color.buttonColorGrey,
+                      fontWeight: Color.buttonWeight),
                   prefixIcon: const Icon(Icons.search),
                   hintText: "Search for an Address",
                 ),
@@ -65,7 +66,7 @@ class _AddressScreenState extends State<AddressScreen> {
                 },
               )),
           Divider(
-            color: Utils.buttonColorGrey,
+            color: Color.buttonColorGrey,
             thickness: 1.0,
           ),
           Padding(
@@ -74,8 +75,8 @@ class _AddressScreenState extends State<AddressScreen> {
               'Nearby addresses',
               style: TextStyle(
                   fontSize: 18,
-                  color: Utils.buttonColorGrey,
-                  fontWeight: Utils.buttonWeight),
+                  color: Color.buttonColorGrey,
+                  fontWeight: Color.buttonWeight),
             ),
           ),
           GestureDetector(
@@ -94,20 +95,20 @@ class _AddressScreenState extends State<AddressScreen> {
                   padding: const EdgeInsets.only(top: 8.0, left: 20),
                   child: Icon(
                     Icons.near_me,
-                    color: Utils.grey900,
+                    color: Color.grey900,
                   ),
                 ),
                 title: Text(
                   'Use Current Location',
                   style: TextStyle(
-                      color: Utils.buttonColorGrey,
-                      fontWeight: Utils.buttonWeight),
+                      color: Color.buttonColorGrey,
+                      fontWeight: Color.buttonWeight),
                 ),
                 subtitle: Text(
                   'Enable location services',
                   style: TextStyle(
-                      color: Utils.buttonColorGrey,
-                      fontWeight: Utils.buttonWeight),
+                      color: Color.buttonColorGrey,
+                      fontWeight: Color.buttonWeight),
                 ),
               )),
           Padding(
@@ -115,8 +116,8 @@ class _AddressScreenState extends State<AddressScreen> {
               child: Text(
                 'We\'ll show you restaurants & hotels near by to pick up orders',
                 style: TextStyle(
-                    color: Utils.buttonColorGrey,
-                    fontWeight: Utils.buttonWeight),
+                    color: Color.buttonColorGrey,
+                    fontWeight: Color.buttonWeight),
               )),
         ]));
   }
