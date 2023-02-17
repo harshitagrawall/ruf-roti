@@ -36,7 +36,7 @@ class NetworkApiResponse extends BaseApiServices {
   dynamic returnResponse(http.Response response) {
     if (response.statusCode >= 200 && response.statusCode < 300) {
       dynamic responseJson = jsonDecode(response.body);
-
+      print(responseJson);
       return responseJson;
     } else if (response.statusCode >= 400 &&
         response.statusCode < 500 &&

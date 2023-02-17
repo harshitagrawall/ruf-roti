@@ -159,8 +159,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         focusNode: _confirmationFocusNode,
                         controller: confirmationController,
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: const BorderRadius.all(
+                            border: const OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
                                     Radius.circular(10))),
                             hintText: "Confirm Password",
                             suffixIcon: GestureDetector(
@@ -210,11 +210,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Utils.toastMessage('Please Enter 6 digit Password');
               } else {
                 Map data = {
-                  'name': nameController.text.toString(),
+                  'email': nameController.text.toString(),
                   // admin@mail.com
                   'password': passwordController.text.toString(),
                   // 12345
-                  'phone': contactController.text.toString(),
+                  // 'phone': contactController.text.toString(),
                 };
                 authviewModal.signUpApi(data, context);
                 // print(data);
@@ -228,7 +228,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               // if (_formKey.currentState!.validate()) {
               //   Navigator.push(
               //       context,
-              //       MaterialPageRoute(
+              //       MaterialPte(ageRou
               //           builder: (context) => OtpScreen(
               //               mobController:
               //               contactController.text.toString())));

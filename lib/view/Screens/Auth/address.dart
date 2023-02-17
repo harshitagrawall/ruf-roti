@@ -1,7 +1,10 @@
+import 'package:wireframe_flaxen/data/network/get_current_location_service.dart';
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
+import 'package:wireframe_flaxen/modal/location_modal.dart';
 import 'package:wireframe_flaxen/resources/color.dart';
+
 class AddressScreen extends StatefulWidget {
   const AddressScreen({Key? key}) : super(key: key);
 
@@ -10,14 +13,26 @@ class AddressScreen extends StatefulWidget {
 }
 
 class _AddressScreenState extends State<AddressScreen> {
-  final _formKey = GlobalKey<FormState>();
+  var lattitude;
+  var longitude;
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   getLocation();
+  // }
+  //
+  Future<String> getLocation() async {
+  var details = await GetLoacation().getCurrentLocation();
+
+    return details;
+    return details;
+
+  }
+
   final addressController = TextEditingController();
 
-  @override
-  void dispose() {
-    addressController.dispose();
-    super.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,15 +50,8 @@ class _AddressScreenState extends State<AddressScreen> {
           Padding(
               padding: const EdgeInsets.all(8),
               child: TextFormField(
-                key: _formKey,
                 controller: addressController,
                 decoration: InputDecoration(
-                  border: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 1.0,
-                      color: Color.greyColor
-                    )
-                  ),
                   hintStyle: TextStyle(
                       color: Color.buttonColorGrey,
                       fontWeight: Color.buttonWeight),
@@ -72,11 +80,15 @@ class _AddressScreenState extends State<AddressScreen> {
             ),
           ),
           GestureDetector(
-              onTap: () {
+              onTap: () async{
+              // String hello =  await getLocation();
+                var hello = await getLocation();
+                print(hello);
+
+
                 // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> Home()), (route) => false);\
-                Utils.removeFocus(context);
-                Navigator.pushNamedAndRemoveUntil(
-                    context, RoutesName.navigationBar, (route) => false);
+                // Navigator.pushNamedAndRemoveUntil(
+                //     context, RoutesName.navigationBar, (route) => false);
               },
               child: ListTile(
                 leading: Padding(
