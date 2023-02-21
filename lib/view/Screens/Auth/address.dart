@@ -1,3 +1,4 @@
+import 'package:provider/provider.dart';
 import 'package:wireframe_flaxen/data/network/get_current_location_service.dart';
 import 'package:flutter/material.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
@@ -24,17 +25,18 @@ class _AddressScreenState extends State<AddressScreen> {
   // }
   //
 
-  Future<String> getLocation() async {
-  var details = await GetLoacation().getCurrentLocation();
-    return details;
-    return details;
-
-  }
+  // Future<String> getLocation() async {
+  // var details = await GetLoacation().getCurrentLocation();
+  //   return details;
+  //   return details;
+  //
+  // }
 
   final addressController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final getLocations = Provider.of<GetLoacation>(context);
     return Scaffold(
         appBar: AppBar(
           elevation: 2,
@@ -80,13 +82,16 @@ class _AddressScreenState extends State<AddressScreen> {
             ),
           ),
           GestureDetector(
-              onTap: () async{
+               onTap: () {
+                  // getLocations.getCurrentLocation();
               // String hello =  await getLocation();
-                var hello = await getLocation();
-                print(hello);
-                // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> Home()), (route) => false);\
-                // Navigator.pushNamedAndRemoveUntil(
-                //     context, RoutesName.navigationBar, (route) => false);
+              //   var hello = await getLocation();
+              //   print(hello);
+              //   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> Home()), (route) => false);
+              //    Navigator.pushNamedAndRemoveUntil(
+              //        context, RoutesName.home, (route) => false);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, RoutesName.navigationBar, (route) => false);
               },
               child: ListTile(
                 leading: Padding(

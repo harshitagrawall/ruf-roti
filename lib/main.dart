@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wireframe_flaxen/Utils/routes.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
+import 'package:wireframe_flaxen/data/network/get_current_location_service.dart';
 import 'package:wireframe_flaxen/view_modal/auth_view_modal.dart';
 
 void main() async {
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthViewModal()),
+        ChangeNotifierProvider(create: (_) => GetLoacation()),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

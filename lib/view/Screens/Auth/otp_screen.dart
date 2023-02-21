@@ -86,16 +86,14 @@ class _OtpScreenState extends State<OtpScreen> {
                       backgroundColor: Color.buttonColorBlue,
                       text: 'Submit',
                       ontap: () {
-                        if (enterOtp != widget.otpController) {
+                        if (enterOtp.toString() != widget.otpController) {
                           Utils.toastMessage('Please check entered Otp');
                         } else if (enterOtp.text.isEmpty) {
                           Utils.toastMessage('Please enter Otp');
+                        } else if (enterOtp.toString().length < 6) {
+                          Utils.toastMessage('Please Enter 6 Digit Otp');
                         } else {
                           Map data = {
-                            // required this.contactController,
-                            // required this.name,
-                            // required this.password,
-                            // required this.otpController,
                             'name': widget.name.text.toString(),
                             // admin@mail.com
                             'password': widget.password.text.toString(),
@@ -103,7 +101,8 @@ class _OtpScreenState extends State<OtpScreen> {
                             'phone': widget.contactController.text.toString(),
                           };
                           authviewModal.signUpApi(data, context);
-                          print(data);
+
+                          // print(data);
                         }
                         Utils.removeFocus(context);
                         Navigator.pushNamedAndRemoveUntil(

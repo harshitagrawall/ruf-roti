@@ -11,12 +11,19 @@ class RotiAdda extends StatefulWidget {
   State<RotiAdda> createState() => _RotiAddaState();
 }
 
-class _RotiAddaState extends State<RotiAdda> {
+class _RotiAddaState extends State<RotiAdda> with WidgetsBindingObserver{
   var device_size, height, width;
   final _restroName = 'Fruits';
   final _dishName = 'Carrot Fruit \$11';
   final _dishDetail = 'Truffle,herbs,garana padano,garli aioli';
   var _counter;
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state){
+    if(state== AppLifecycleState.resumed){
+      restroList = [];
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

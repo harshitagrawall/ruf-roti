@@ -26,7 +26,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final FocusNode _passwordFocusNode = FocusNode();
   final FocusNode _mobileFocusNode = FocusNode();
   final FocusNode _confirmationFocusNode = FocusNode();
-  var _otp = DateTime.now().millisecondsSinceEpoch.toString().substring(7, 13);
+  final _otp = DateTime.now().millisecondsSinceEpoch.toString().substring(7, 13);
 
   late bool _passwordVisible = true;
   late bool _confirmationVisible = true;
