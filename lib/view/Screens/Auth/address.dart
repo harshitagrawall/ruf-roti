@@ -23,9 +23,9 @@ class _AddressScreenState extends State<AddressScreen> {
   //   getLocation();
   // }
   //
+
   Future<String> getLocation() async {
   var details = await GetLoacation().getCurrentLocation();
-
     return details;
     return details;
 
@@ -84,8 +84,6 @@ class _AddressScreenState extends State<AddressScreen> {
               // String hello =  await getLocation();
                 var hello = await getLocation();
                 print(hello);
-
-
                 // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> Home()), (route) => false);\
                 // Navigator.pushNamedAndRemoveUntil(
                 //     context, RoutesName.navigationBar, (route) => false);

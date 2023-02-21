@@ -7,7 +7,7 @@ class AppUrl {
   static var  logInEndPoint =  'http://88.99.248.156/~anand/api/auth/login.php';
 
   // Post Api
-  static var  signUpEndPoint = 'https://reqres.in//api/register';
+  static var  signUpEndPoint = 'https://reqres.in/api/register';
 
   // Post Api
   static var  otpEndPoint = baseUrl + '';

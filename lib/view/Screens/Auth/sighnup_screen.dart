@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -15,15 +16,17 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
-  final nameController = TextEditingController();
-  final contactController = TextEditingController();
-  final passwordController = TextEditingController();
-  final confirmationController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _contactController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmationController = TextEditingController();
   final FocusNode _nameFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
   final FocusNode _mobileFocusNode = FocusNode();
   final FocusNode _confirmationFocusNode = FocusNode();
+  var _otp = DateTime.now().millisecondsSinceEpoch.toString().substring(7, 13);
 
   late bool _passwordVisible = true;
   late bool _confirmationVisible = true;
@@ -32,16 +35,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    nameController.dispose();
-    contactController.dispose();
-    passwordController.dispose();
-    confirmationController.dispose();
-
+    _nameController.dispose();
+    _contactController.dispose();
+    _passwordController.dispose();
+    _confirmationController.dispose();
     _nameFocusNode.dispose();
     _passwordFocusNode.dispose();
     _mobileFocusNode.dispose();
     _confirmationFocusNode.dispose();
   }
+
+  // void signInIt() {
+  //   _auth
+  //       .signInWithPhoneNumber(contactController.text.toString())
+  //       .then((value) {});
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +80,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
-                      controller: nameController,
+                      controller: _nameController,
                       focusNode: _nameFocusNode,
                       decoration: InputDecoration(
                         fillColor: Colors.grey.shade900,
@@ -98,7 +106,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ],
                       keyboardType: TextInputType.number,
                       focusNode: _mobileFocusNode,
-                      controller: contactController,
+                      controller: _contactController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius:
@@ -117,7 +125,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
-                      controller: passwordController,
+                      controller: _passwordController,
                       focusNode: _passwordFocusNode,
                       obscureText: _passwordVisible,
                       decoration: InputDecoration(
@@ -157,11 +165,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: TextFormField(
                         obscureText: _confirmationVisible,
                         focusNode: _confirmationFocusNode,
-                        controller: confirmationController,
+                        controller: _confirmationController,
                         decoration: InputDecoration(
                             border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(10))),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10))),
                             hintText: "Confirm Password",
                             suffixIcon: GestureDetector(
                               onTap: () {
@@ -195,44 +203,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
             backgroundColor: Color.buttonColorBlue,
             text: 'Create Account',
             ontap: () {
-              if (nameController.text.isEmpty) {
+              if (_nameController.text.isEmpty) {
                 Utils.toastMessage('Please Enter Name');
-              } else if (contactController.text.isEmpty) {
+              } else if (_contactController.text.isEmpty) {
                 Utils.toastMessage('Please Enter Mobile No.');
-              } else if (contactController.text.length < 10) {
+              } else if (_contactController.text.length < 10) {
                 Utils.toastMessage('Please Enter 10 Digit Mobile No.');
-              } else if (passwordController.text.toString() !=
-                  confirmationController.text.toString()) {
+              } else if (_passwordController.text.toString() !=
+                  _confirmationController.text.toString()) {
                 Utils.toastMessage('Sorry! Password Mismatch');
-              } else if (passwordController.text.isEmpty) {
+              } else if (_passwordController.text.isEmpty) {
                 Utils.toastMessage('Please Enter Password');
-              } else if (passwordController.text.length < 3) {
+              } else if (_passwordController.text.length < 3) {
                 Utils.toastMessage('Please Enter 6 digit Password');
               } else {
-                Map data = {
-                  'email': nameController.text.toString(),
-                  // admin@mail.com
-                  'password': passwordController.text.toString(),
-                  // 12345
-                  // 'phone': contactController.text.toString(),
-                };
-                authviewModal.signUpApi(data, context);
-                // print(data);
                 Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => OtpScreen(
-                                  mobController:
-                                  contactController.text.toString())));
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => OtpScreen(
+                              contactController:
+                                  _contactController.text.toString(),
+                              name: _nameController,
+                              password: _passwordController,
+                              otpController: _otp,
+                            )));
               }
-              // if (_formKey.currentState!.validate()) {
-              //   Navigator.push(
-              //       context,
-              //       MaterialPte(ageRou
-              //           builder: (context) => OtpScreen(
-              //               mobController:
-              //               contactController.text.toString())));
-              // }
             }),
       ),
     );
