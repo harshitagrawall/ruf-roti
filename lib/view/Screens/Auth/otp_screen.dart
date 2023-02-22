@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:wireframe_flaxen/Utils/routes_name.dart';
 import 'package:wireframe_flaxen/Utils/utils.dart';
 import 'package:wireframe_flaxen/resources/color.dart';
+
 // import 'package:flutter/src/widgets/container.dart';
 // import 'package:flutter/src/widgets/framework.dart';
 import 'package:wireframe_flaxen/resources/round_button.dart';
+import 'package:wireframe_flaxen/view_modal/auth_view_modal.dart';
 
 class OtpScreen extends StatefulWidget {
-  var mobController;
+  var contactController, name, password, otpController;
 
   OtpScreen({
     super.key,
-    required this.mobController,
+    required this.contactController,
+    required this.name,
+    required this.password,
+    required this.otpController,
   });
 
   @override
@@ -21,9 +27,11 @@ class OtpScreen extends StatefulWidget {
 
 class _OtpScreenState extends State<OtpScreen> {
   final _formKey = GlobalKey<FormState>();
+  final enterOtp = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final authviewModal = Provider.of<AuthViewModal>(context);
     // print(widget.mobController);
     return Scaffold(
         appBar: AppBar(
@@ -42,7 +50,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       children: [
                         Expanded(
                           child: Text(
-                            'Otp Sent on :- ${widget.mobController}',
+                            'Otp Sent on :- ${widget.contactController}',
                             style: const TextStyle(
                                 fontSize: 15, fontWeight: FontWeight.bold),
                           ),
@@ -56,22 +64,17 @@ class _OtpScreenState extends State<OtpScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: TextFormField(
+                      controller: enterOtp,
                       inputFormatters: [
                         FilteringTextInputFormatter.digitsOnly,
                       ],
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        hintText: "Mobile No:-",
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'please enter otp';
-                        }
-                        return null;
-                      },
+                      decoration: InputDecoration(
+                          border: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          hintText:
+                              'please enter otp :- ${widget.otpController}'),
                     ),
                   ),
                   const SizedBox(
@@ -83,17 +86,27 @@ class _OtpScreenState extends State<OtpScreen> {
                       backgroundColor: Color.buttonColorBlue,
                       text: 'Submit',
                       ontap: () {
-                        if (_formKey.currentState!.validate()) {
-                          // Navigator.pushAndRemoveUntil(context,
-                          //     MaterialPageRoute(
-                          //   builder: (BuildContext context) {
-                          //     return const AddressScreen();
-                          //   },
-                          // ), (route) => false);
-                          Utils.removeFocus(context);
-                          Navigator.pushNamedAndRemoveUntil(
-                              context, RoutesName.address, (route) => false);
+                        if (enterOtp.toString() != widget.otpController) {
+                          Utils.toastMessage('Please check entered Otp');
+                        } else if (enterOtp.text.isEmpty) {
+                          Utils.toastMessage('Please enter Otp');
+                        } else if (enterOtp.toString().length < 6) {
+                          Utils.toastMessage('Please Enter 6 Digit Otp');
+                        } else {
+                          Map data = {
+                            'name': widget.name.text.toString(),
+                            // admin@mail.com
+                            'password': widget.password.text.toString(),
+                            // 12345
+                            'phone': widget.contactController.text.toString(),
+                          };
+                          authviewModal.signUpApi(data, context);
+
+                          // print(data);
                         }
+                        Utils.removeFocus(context);
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, RoutesName.address, (route) => false);
                       }),
                 ],
               ),

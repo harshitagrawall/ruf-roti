@@ -7,10 +7,10 @@ class AppUrl {
   static var  logInEndPoint =  'http://88.99.248.156/~anand/api/auth/login.php';
 
   // Post Api
-  static var  signUpEndPoint = 'https://reqres.in//api/register';
+  static var  signUpEndPoint = 'https://reqres.in/api/register';
 
   // Post Api
-  static var  otpEndPoint = baseUrl + '';
+  static var  otpEndPoint = baseUrl + 'https://d7-verify.p.rapidapi.com/verify/v1/report/%7Botp_id%7D';
 
   // Post Api
   static var  addAddressEndPoint = baseUrl + '';
@@ -32,8 +32,5 @@ class AppUrl {
 
   //Get
   static var  EndPoint = baseUrl + '';
-
-
-
 
 }

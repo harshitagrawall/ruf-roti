@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "509688795893",
+    "project_id": "vegfruits-4feb5",
+    "storage_bucket": "vegfruits-4feb5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509688795893:android:77c91e89a48666daee6bbc",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509688795893-nlvs1hl7ouj88rtj0pupb9jtcq774u6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA--us-I8IJrAeXLOHhTzTm7EGZ4uszGnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "509688795893-nlvs1hl7ouj88rtj0pupb9jtcq774u6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509688795893:android:20d8ef6a75ed8d69ee6bbc",
+        "android_client_info": {
+          "package_name": "com.example.wireframe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509688795893-nlvs1hl7ouj88rtj0pupb9jtcq774u6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA--us-I8IJrAeXLOHhTzTm7EGZ4uszGnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "509688795893-nlvs1hl7ouj88rtj0pupb9jtcq774u6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
