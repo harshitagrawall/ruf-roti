@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthViewModal()),
-        ChangeNotifierProvider(create: (_) => GetLoacation()),
+        ChangeNotifierProvider(create: (_) => GetLocation()),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

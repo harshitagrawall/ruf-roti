@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart';
 import 'package:wireframe_flaxen/data/app_exceptions.dart';
 
 class GetLocation with ChangeNotifier{
@@ -12,7 +13,8 @@ class GetLocation with ChangeNotifier{
       Position position1 = await determinePosition();
       List<Placemark> placemarks = await placemarkFromCoordinates(
           position1.latitude, position1.longitude);
-      address = placemarks[0].toString();
+      address = placemarks.toString();
+      print('${position1.latitude}  ${position1.longitude}');
     }
     catch(e){
       print(e.toString());
