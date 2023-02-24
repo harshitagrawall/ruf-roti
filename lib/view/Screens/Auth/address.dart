@@ -1,10 +1,8 @@
-import 'package:provider/provider.dart';
 import 'package:wireframe_flaxen/data/network/get_current_location_service.dart';
 import 'package:flutter/material.dart';
-import 'package:wireframe_flaxen/Utils/routes_name.dart';
-import 'package:wireframe_flaxen/Utils/utils.dart';
-import 'package:wireframe_flaxen/modal/location_modal.dart';
 import 'package:wireframe_flaxen/resources/color.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:wireframe_flaxen/view/Screens/Home/navigation.dart';
 
 class AddressScreen extends StatefulWidget {
   const AddressScreen({Key? key}) : super(key: key);
@@ -14,8 +12,8 @@ class AddressScreen extends StatefulWidget {
 }
 
 class _AddressScreenState extends State<AddressScreen> {
-  var lattitude;
-  var longitude;
+  // var lattitude;
+  // var longitude;
 
   // @override
   // void initState() {
@@ -24,19 +22,34 @@ class _AddressScreenState extends State<AddressScreen> {
   //   getLocation();
   // }
   //
-
   // Future<String> getLocation() async {
   // var details = await GetLoacation().getCurrentLocation();
+  //
   //   return details;
   //   return details;
   //
   // }
 
+  late GoogleMapController mapController;
+
+  String address = '';
+
+  // late  LatLng _center = const LatLng(22.719568, 75.857727);
+  //
+  // void _onMapCreated(GoogleMapController controller) {
+  //   mapController = controller;
+  // }
+
   final addressController = TextEditingController();
 
   @override
+  void dispose() {
+    addressController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final getLocations = Provider.of<GetLoacation>(context);
     return Scaffold(
         appBar: AppBar(
           elevation: 2,
@@ -45,7 +58,7 @@ class _AddressScreenState extends State<AddressScreen> {
           title: const Text(
             'Add Address',
             style: TextStyle(
-                color: Color.greyColor, fontWeight: Color.buttonWeight),
+                color: Color.greyColor, fontWeight: Color.buttonWeightHeavy),
           ),
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -54,9 +67,10 @@ class _AddressScreenState extends State<AddressScreen> {
               child: TextFormField(
                 controller: addressController,
                 decoration: InputDecoration(
+                  focusColor: Color.buttonColorGrey,
                   hintStyle: TextStyle(
                       color: Color.buttonColorGrey,
-                      fontWeight: Color.buttonWeight),
+                      fontWeight: Color.buttonWeightHeavy),
                   prefixIcon: const Icon(Icons.search),
                   hintText: "Search for an Address",
                 ),
@@ -78,50 +92,79 @@ class _AddressScreenState extends State<AddressScreen> {
               style: TextStyle(
                   fontSize: 18,
                   color: Color.buttonColorGrey,
-                  fontWeight: Color.buttonWeight),
+                  fontWeight: Color.buttonWeightHeavy),
             ),
           ),
           GestureDetector(
-               onTap: () {
-                  // getLocations.getCurrentLocation();
-              // String hello =  await getLocation();
-              //   var hello = await getLocation();
-              //   print(hello);
-              //   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> Home()), (route) => false);
-              //    Navigator.pushNamedAndRemoveUntil(
-              //        context, RoutesName.home, (route) => false);
-                Navigator.pushNamedAndRemoveUntil(
-                    context, RoutesName.navigationBar, (route) => false);
+              onTap: () async {
+                // String hello =  await getLocation();
+                var position = await GetLocation().getCurrentLocation();
+
+                setState(() {
+                  address = position;
+                });
+
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> Home()), (route) => false);
+                // Navigator.pushNamedAndRemoveUntil(
+                //     context, RoutesName.navigationBar, (route) => false);
               },
               child: ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.only(top: 8.0, left: 20),
                   child: Icon(
                     Icons.near_me,
-                    color: Color.grey900,
+                    color: Color.buttonColorGrey,
                   ),
                 ),
                 title: Text(
                   'Use Current Location',
                   style: TextStyle(
                       color: Color.buttonColorGrey,
-                      fontWeight: Color.buttonWeight),
+                      fontWeight: Color.buttonWeightHeavy),
                 ),
                 subtitle: Text(
                   'Enable location services',
                   style: TextStyle(
                       color: Color.buttonColorGrey,
-                      fontWeight: Color.buttonWeight),
+                      fontWeight: Color.buttonWeightHeavy),
                 ),
               )),
-          Padding(
-              padding: const EdgeInsets.only(top: 10, left: 34, right: 24),
-              child: Text(
+          const Padding(
+              padding:  EdgeInsets.only(top: 10, left: 24, right: 24),
+              child:  Text(
                 'We\'ll show you restaurants & hotels near by to pick up orders',
                 style: TextStyle(
-                    color: Color.buttonColorGrey,
-                    fontWeight: Color.buttonWeight),
+                    color: Color.blackColor,
+                    fontWeight: Color.buttonWeightHeavy),
               )),
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0, right: 24),
+            child: Center(
+                child: address == '' ? Container() : Card(
+                  elevation: 9,
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Text(
+                  address,
+                  style: TextStyle(
+                      color: Color.grey900,
+                      fontWeight: Color.buttonWeightHeavy),
+                ),
+              ),
+            )),
+          ),
+          // Container(
+          //   padding: const EdgeInsets.all(20),
+          //   height: 350,
+          //   width: 400,
+          //   child: GoogleMap(
+          //       onMapCreated: _onMapCreated,
+          //       initialCameraPosition: CameraPosition(
+          //         target: _center,
+          //         zoom: 11.0,
+          //       ),
+          //     ),
+          // ),
         ]));
   }
 }
