@@ -44,11 +44,13 @@ dependencies:
   timeline_tile: ^2.0.0
   geolocator: ^9.0.2
   google_fonts: ^4.0.3
+  google_maps_flutter: 2.2.4
   firebase_core: ^2.4.0
   firebase_auth: ^4.2.0
   firebase_storage: ^11.0.7
   cloud_firestore: ^4.2.0
   firebase_database: ^10.0.7
+  geocoding: ^2.0.4
 
 dev_dependencies:
   flutter_test:
